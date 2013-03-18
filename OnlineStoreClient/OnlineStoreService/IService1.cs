@@ -20,7 +20,7 @@ namespace OnlineStoreService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         [OperationContract]
-        string ReturnGay(string name);
+        bool login(string name, string password);
 
         // TODO: Add your service operations here
     }

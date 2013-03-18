@@ -12,6 +12,8 @@ namespace OnlineStoreService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        private string name = "pesho";
+        private string pass = "pesho";
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -29,10 +31,18 @@ namespace OnlineStoreService
             }
             return composite;
         }
-        public string ReturnGay(string name)
+
+
+        public bool login(string name, string password)
         {
-            name += " Is very very gay";
-            return name;
+            if (name == this.name && password == this.pass)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

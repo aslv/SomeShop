@@ -24,7 +24,15 @@ namespace OnlineStoreClient
         public MainWindow()
         {
             InitializeComponent();
-            tbName.Text = _provider.ReturnGay("Pesho");
+        }
+
+        private void logIn_Click(object sender, RoutedEventArgs e)
+        {
+            bool logged = _provider.login(nickName.Text, password.Text);
+            if (logged == true)
+            {
+                loginFrm.Visibility = Visibility.Collapsed;
+            }
         }
         
     }

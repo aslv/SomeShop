@@ -90,11 +90,11 @@ namespace OnlineStoreClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<OnlineStoreClient.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(OnlineStoreClient.ServiceReference1.CompositeType composite);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ReturnGay", ReplyAction="http://tempuri.org/IService1/ReturnGayResponse")]
-        string ReturnGay(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/login", ReplyAction="http://tempuri.org/IService1/loginResponse")]
+        bool login(string name, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ReturnGay", ReplyAction="http://tempuri.org/IService1/ReturnGayResponse")]
-        System.Threading.Tasks.Task<string> ReturnGayAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/login", ReplyAction="http://tempuri.org/IService1/loginResponse")]
+        System.Threading.Tasks.Task<bool> loginAsync(string name, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -140,12 +140,12 @@ namespace OnlineStoreClient.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public string ReturnGay(string name) {
-            return base.Channel.ReturnGay(name);
+        public bool login(string name, string password) {
+            return base.Channel.login(name, password);
         }
         
-        public System.Threading.Tasks.Task<string> ReturnGayAsync(string name) {
-            return base.Channel.ReturnGayAsync(name);
+        public System.Threading.Tasks.Task<bool> loginAsync(string name, string password) {
+            return base.Channel.loginAsync(name, password);
         }
     }
 }
