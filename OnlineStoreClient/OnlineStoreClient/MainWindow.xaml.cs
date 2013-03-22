@@ -20,19 +20,23 @@ namespace OnlineStoreClient
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private ServiceReference1.Service1Client _provider = new ServiceReference1.Service1Client();
+        Login.LoginFrm log = new Login.LoginFrm();
+
         public MainWindow()
         {
             InitializeComponent();
+            workArea.Children.Add(log);
         }
 
         private void logIn_Click(object sender, RoutedEventArgs e)
         {
-            bool logged = _provider.login(nickName.Text, password.Text);
+           /* bool logged = _provider.login(nickName.Text, password.Text);
             if (logged == true)
             {
                 loginFrm.Visibility = Visibility.Collapsed;
-            }
+            }*/
         }
         
     }
