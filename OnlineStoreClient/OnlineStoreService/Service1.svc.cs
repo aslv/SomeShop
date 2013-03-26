@@ -35,6 +35,12 @@ namespace OnlineStoreService
 
         public bool login(string name, string password)
         {
+            Model1Container provider = new Model1Container();
+                        //Example of using LINQ to access the model.
+            var names = from d in provider.Entity1Set
+                        where d.Id > 20
+                        select d;
+
             if (name == this.name && password == this.pass)
             {
                 return true;
