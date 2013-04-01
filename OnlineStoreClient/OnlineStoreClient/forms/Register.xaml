@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Login.LoginFrm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:MyNamespace="clr-namespace:Login"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="412" Height="246">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="img/loginControlBack.png"/>
+        </Grid.Background>
+        <Label x:Name="txFistName" Content="First Name" Margin="21,10,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116" Height="23"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="201,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <Label x:Name="txRePass" Content="Re-Enter Pass" Margin="21,122,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116"/>
+        <PasswordBox x:Name="pwPass" HorizontalAlignment="Left" Height="23" Margin="201,94,0,0"  VerticalAlignment="Top" Width="201"/>
+        <Label x:Name="txLastName" Content="Last Name" Margin="21,38,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116" Height="23"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="23" Margin="201,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <Label x:Name="txPass" Content="Enter Pass" Margin="21,94,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116" Height="23"/>
+        <Label x:Name="txAccount" Content="Account Name" Margin="21,66,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116" Height="23"/>
+        <Label x:Name="txEmail" Content="Email Address" Margin="21,153,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="116" Height="23"/>
+        <TextBox x:Name="tbUsername_Copy1" HorizontalAlignment="Left" Height="23" Margin="201,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <TextBox x:Name="tbUsername_Copy2" HorizontalAlignment="Left" Height="23" Margin="201,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <TextBox x:Name="tbLastName_Copy" HorizontalAlignment="Left" Height="23" Margin="201,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+
+    </Grid>
+</UserControl>
