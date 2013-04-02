@@ -37,9 +37,9 @@ namespace OnlineStoreService
         {
             Model1Container provider = new Model1Container();
                         //Example of using LINQ to access the model.
-            var names = from d in provider.Entity1Set
-                        where d.Id > 20
-                        select d;
+            //var names = from d in provider.Entity1Set
+            //            where d.Id > 20
+            //            select d;
 
             if (name == this.name && password == this.pass)
             {

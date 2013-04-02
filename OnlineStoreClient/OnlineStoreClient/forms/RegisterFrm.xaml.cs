@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Login
+namespace OnlineStoreClient.forms
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for Register_form.xaml
     /// </summary>
-    public partial class Register : UserControl
+    public partial class Register_form : UserControl
     {
-        public Register()
+        public Register_form()
         {
-           
+            InitializeComponent();
         }
     }
 }

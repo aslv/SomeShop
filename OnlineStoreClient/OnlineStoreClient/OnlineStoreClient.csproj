@@ -55,25 +55,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="forms\Register.xaml.cs">
-      <DependentUpon>Register.xaml</DependentUpon>
+    <Compile Include="forms\LoginBtn.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="forms\LoginBtn.cs" />
     <Compile Include="forms\LoginFrm.xaml.cs">
       <DependentUpon>LoginFrm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="forms\RegisterFrm.xaml.cs">
+      <DependentUpon>RegisterFrm.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Page Include="forms\Register.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="forms\LoginFrm.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\RegisterFrm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -24,5 +24,10 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void lbReg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
