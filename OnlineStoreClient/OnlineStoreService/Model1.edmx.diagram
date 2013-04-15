@@ -5,12 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c9aff1fc1e9a47a6a35f499cb7dca4a6" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.Accounts" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.PaymentDetails" Width="1.5" PointX="5.625" PointY="0.75" />
-        <EntityTypeShape EntityType="Model1.Purchases" Width="1.75" PointX="7.875" PointY="1" />
-        <EntityTypeShape EntityType="Model1.Products" Width="1.5" PointX="10.125" PointY="1.75" />
-        <EntityTypeShape EntityType="Model1.sysdiagrams" Width="1.5" PointX="6.15863054905023" PointY="18.754002877862195" />
-        <AssociationConnector Association="Model1.FK_PurchasesSet_PaymentDetailsSet" />
+        <EntityTypeShape EntityType="Model1.AccountsSet" Width="1.5" PointX="3.625" PointY="14.75" />
+        <EntityTypeShape EntityType="Model1.PaymentDetailsSet" Width="1.5" PointX="7.375" PointY="14.875" />
+        <EntityTypeShape EntityType="Model1.ProductsSet" Width="1.5" PointX="9.5" PointY="14.625" />
+        <EntityTypeShape EntityType="Model1.Promos" Width="1.5" PointX="11.875" PointY="15.75" />
+        <EntityTypeShape EntityType="Model1.PurchasesSet" Width="1.5" PointX="5.5" PointY="14.75" />
+        <AssociationConnector Association="Model1.FK_AccountsSet_PaymentDetailsSet" />
+        <AssociationConnector Association="Model1.FK_Promos_AccountsSet1" />
+        <AssociationConnector Association="Model1.FK_PurchasesSet_AccountsSet" />
+        <AssociationConnector Association="Model1.FK_Promos_ProductsSet1" />
+        <AssociationConnector Association="Model1.FK_PurchasesSet_PurchasesSet" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

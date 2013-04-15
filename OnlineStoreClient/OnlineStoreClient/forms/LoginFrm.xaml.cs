@@ -25,11 +25,10 @@ namespace Login
             InitializeComponent();
         }
 
-<<<<<<< HEAD
         private void lbReg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 
-=======
+        }
         private void LoginBtn_Click_1(object sender, RoutedEventArgs e)
         {
             OnlineStoreClient.ServiceReference1.Service1Client _provider = new OnlineStoreClient.ServiceReference1.Service1Client();
@@ -42,7 +41,6 @@ namespace Login
             {
                 MessageBox.Show("Ne brao");
             }
->>>>>>> Работеща връзка към Базата от данни
         }
     }
 }

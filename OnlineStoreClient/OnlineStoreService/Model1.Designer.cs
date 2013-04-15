@@ -19,7 +19,11 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("Model1", "FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.PaymentDetails), "Purchases", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(OnlineStoreService.Purchases), true)]
+[assembly: EdmRelationshipAttribute("Model1", "FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.PaymentDetailsSet), "AccountsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(OnlineStoreService.AccountsSet), true)]
+[assembly: EdmRelationshipAttribute("Model1", "FK_Promos_AccountsSet1", "AccountsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.AccountsSet), "Promos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(OnlineStoreService.Promos), true)]
+[assembly: EdmRelationshipAttribute("Model1", "FK_PurchasesSet_AccountsSet", "AccountsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.AccountsSet), "PurchasesSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(OnlineStoreService.PurchasesSet), true)]
+[assembly: EdmRelationshipAttribute("Model1", "FK_Promos_ProductsSet1", "ProductsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.ProductsSet), "Promos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(OnlineStoreService.Promos), true)]
+[assembly: EdmRelationshipAttribute("Model1", "FK_PurchasesSet_PurchasesSet", "ProductsSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(OnlineStoreService.ProductsSet), "PurchasesSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(OnlineStoreService.PurchasesSet), true)]
 
 #endregion
 
@@ -74,66 +78,82 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Accounts> AccountsSet
+        public ObjectSet<AccountsSet> AccountsSet
         {
             get
             {
                 if ((_AccountsSet == null))
                 {
-                    _AccountsSet = base.CreateObjectSet<Accounts>("AccountsSet");
+                    _AccountsSet = base.CreateObjectSet<AccountsSet>("AccountsSet");
                 }
                 return _AccountsSet;
             }
         }
-        private ObjectSet<Accounts> _AccountsSet;
+        private ObjectSet<AccountsSet> _AccountsSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PaymentDetails> PaymentDetailsSet
+        public ObjectSet<PaymentDetailsSet> PaymentDetailsSet
         {
             get
             {
                 if ((_PaymentDetailsSet == null))
                 {
-                    _PaymentDetailsSet = base.CreateObjectSet<PaymentDetails>("PaymentDetailsSet");
+                    _PaymentDetailsSet = base.CreateObjectSet<PaymentDetailsSet>("PaymentDetailsSet");
                 }
                 return _PaymentDetailsSet;
             }
         }
-        private ObjectSet<PaymentDetails> _PaymentDetailsSet;
+        private ObjectSet<PaymentDetailsSet> _PaymentDetailsSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Purchases> PurchasesSet
-        {
-            get
-            {
-                if ((_PurchasesSet == null))
-                {
-                    _PurchasesSet = base.CreateObjectSet<Purchases>("PurchasesSet");
-                }
-                return _PurchasesSet;
-            }
-        }
-        private ObjectSet<Purchases> _PurchasesSet;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Products> ProductsSet
+        public ObjectSet<ProductsSet> ProductsSet
         {
             get
             {
                 if ((_ProductsSet == null))
                 {
-                    _ProductsSet = base.CreateObjectSet<Products>("ProductsSet");
+                    _ProductsSet = base.CreateObjectSet<ProductsSet>("ProductsSet");
                 }
                 return _ProductsSet;
             }
         }
-        private ObjectSet<Products> _ProductsSet;
+        private ObjectSet<ProductsSet> _ProductsSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Promos> Promos
+        {
+            get
+            {
+                if ((_Promos == null))
+                {
+                    _Promos = base.CreateObjectSet<Promos>("Promos");
+                }
+                return _Promos;
+            }
+        }
+        private ObjectSet<Promos> _Promos;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PurchasesSet> PurchasesSet
+        {
+            get
+            {
+                if ((_PurchasesSet == null))
+                {
+                    _PurchasesSet = base.CreateObjectSet<PurchasesSet>("PurchasesSet");
+                }
+                return _PurchasesSet;
+            }
+        }
+        private ObjectSet<PurchasesSet> _PurchasesSet;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -158,33 +178,41 @@ namespace OnlineStoreService
         /// <summary>
         /// Deprecated Method for adding a new object to the AccountsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToAccountsSet(Accounts accounts)
+        public void AddToAccountsSet(AccountsSet accountsSet)
         {
-            base.AddObject("AccountsSet", accounts);
+            base.AddObject("AccountsSet", accountsSet);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the PaymentDetailsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPaymentDetailsSet(PaymentDetails paymentDetails)
+        public void AddToPaymentDetailsSet(PaymentDetailsSet paymentDetailsSet)
         {
-            base.AddObject("PaymentDetailsSet", paymentDetails);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the PurchasesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPurchasesSet(Purchases purchases)
-        {
-            base.AddObject("PurchasesSet", purchases);
+            base.AddObject("PaymentDetailsSet", paymentDetailsSet);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductsSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToProductsSet(Products products)
+        public void AddToProductsSet(ProductsSet productsSet)
         {
-            base.AddObject("ProductsSet", products);
+            base.AddObject("ProductsSet", productsSet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Promos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPromos(Promos promos)
+        {
+            base.AddObject("Promos", promos);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PurchasesSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPurchasesSet(PurchasesSet purchasesSet)
+        {
+            base.AddObject("PurchasesSet", purchasesSet);
         }
     
         /// <summary>
@@ -453,15 +481,15 @@ namespace OnlineStoreService
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Accounts")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="AccountsSet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Accounts : EntityObject
+    public partial class AccountsSet : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Accounts object.
+        /// Create a new AccountsSet object.
         /// </summary>
         /// <param name="username">Initial value of the Username property.</param>
         /// <param name="password">Initial value of the Password property.</param>
@@ -471,18 +499,18 @@ namespace OnlineStoreService
         /// <param name="email">Initial value of the email property.</param>
         /// <param name="firstNameAcc">Initial value of the FirstNameAcc property.</param>
         /// <param name="lastNameAcc">Initial value of the LastNameAcc property.</param>
-        public static Accounts CreateAccounts(global::System.String username, global::System.String password, global::System.Boolean type, global::System.DateTime dateOfBirth, global::System.Boolean gender, global::System.String email, global::System.String firstNameAcc, global::System.String lastNameAcc)
+        public static AccountsSet CreateAccountsSet(global::System.String username, global::System.String password, global::System.Boolean type, global::System.DateTime dateOfBirth, global::System.Boolean gender, global::System.String email, global::System.String firstNameAcc, global::System.String lastNameAcc)
         {
-            Accounts accounts = new Accounts();
-            accounts.Username = username;
-            accounts.Password = password;
-            accounts.Type = type;
-            accounts.DateOfBirth = dateOfBirth;
-            accounts.Gender = gender;
-            accounts.email = email;
-            accounts.FirstNameAcc = firstNameAcc;
-            accounts.LastNameAcc = lastNameAcc;
-            return accounts;
+            AccountsSet accountsSet = new AccountsSet();
+            accountsSet.Username = username;
+            accountsSet.Password = password;
+            accountsSet.Type = type;
+            accountsSet.DateOfBirth = dateOfBirth;
+            accountsSet.Gender = gender;
+            accountsSet.email = email;
+            accountsSet.FirstNameAcc = firstNameAcc;
+            accountsSet.LastNameAcc = lastNameAcc;
+            return accountsSet;
         }
 
         #endregion
@@ -683,6 +711,116 @@ namespace OnlineStoreService
         private global::System.String _LastNameAcc;
         partial void OnLastNameAccChanging(global::System.String value);
         partial void OnLastNameAccChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Role
+        {
+            get
+            {
+                return _Role;
+            }
+            set
+            {
+                OnRoleChanging(value);
+                ReportPropertyChanging("Role");
+                _Role = StructuralObject.SetValidValue(value, "Role");
+                ReportPropertyChanged("Role");
+                OnRoleChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Role;
+        partial void OnRoleChanging(Nullable<global::System.Boolean> value);
+        partial void OnRoleChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet")]
+        public PaymentDetailsSet PaymentDetailsSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetailsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetailsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PaymentDetailsSet> PaymentDetailsSetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetailsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentDetailsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "PaymentDetailsSet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_Promos_AccountsSet1", "Promos")]
+        public EntityCollection<Promos> Promos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Promos>("Model1.FK_Promos_AccountsSet1", "Promos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Promos>("Model1.FK_Promos_AccountsSet1", "Promos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_AccountsSet", "PurchasesSet")]
+        public EntityCollection<PurchasesSet> PurchasesSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PurchasesSet>("Model1.FK_PurchasesSet_AccountsSet", "PurchasesSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PurchasesSet>("Model1.FK_PurchasesSet_AccountsSet", "PurchasesSet", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -691,15 +829,15 @@ namespace OnlineStoreService
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="PaymentDetails")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="PaymentDetailsSet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class PaymentDetails : EntityObject
+    public partial class PaymentDetailsSet : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new PaymentDetails object.
+        /// Create a new PaymentDetailsSet object.
         /// </summary>
         /// <param name="username">Initial value of the Username property.</param>
         /// <param name="firstName">Initial value of the FirstName property.</param>
@@ -712,21 +850,21 @@ namespace OnlineStoreService
         /// <param name="cardNumber">Initial value of the CardNumber property.</param>
         /// <param name="dateOfExpire">Initial value of the DateOfExpire property.</param>
         /// <param name="securityCode">Initial value of the SecurityCode property.</param>
-        public static PaymentDetails CreatePaymentDetails(global::System.String username, global::System.String firstName, global::System.String lastName, global::System.String country, global::System.String district, global::System.String town, global::System.Int16 postalCode, global::System.String payingAddress, global::System.String cardNumber, global::System.DateTime dateOfExpire, global::System.Int16 securityCode)
+        public static PaymentDetailsSet CreatePaymentDetailsSet(global::System.String username, global::System.String firstName, global::System.String lastName, global::System.String country, global::System.String district, global::System.String town, global::System.Int16 postalCode, global::System.String payingAddress, global::System.String cardNumber, global::System.DateTime dateOfExpire, global::System.Int16 securityCode)
         {
-            PaymentDetails paymentDetails = new PaymentDetails();
-            paymentDetails.Username = username;
-            paymentDetails.FirstName = firstName;
-            paymentDetails.LastName = lastName;
-            paymentDetails.Country = country;
-            paymentDetails.District = district;
-            paymentDetails.Town = town;
-            paymentDetails.PostalCode = postalCode;
-            paymentDetails.PayingAddress = payingAddress;
-            paymentDetails.CardNumber = cardNumber;
-            paymentDetails.DateOfExpire = dateOfExpire;
-            paymentDetails.SecurityCode = securityCode;
-            return paymentDetails;
+            PaymentDetailsSet paymentDetailsSet = new PaymentDetailsSet();
+            paymentDetailsSet.Username = username;
+            paymentDetailsSet.FirstName = firstName;
+            paymentDetailsSet.LastName = lastName;
+            paymentDetailsSet.Country = country;
+            paymentDetailsSet.District = district;
+            paymentDetailsSet.Town = town;
+            paymentDetailsSet.PostalCode = postalCode;
+            paymentDetailsSet.PayingAddress = payingAddress;
+            paymentDetailsSet.CardNumber = cardNumber;
+            paymentDetailsSet.DateOfExpire = dateOfExpire;
+            paymentDetailsSet.SecurityCode = securityCode;
+            return paymentDetailsSet;
         }
 
         #endregion
@@ -1010,18 +1148,34 @@ namespace OnlineStoreService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_PaymentDetailsSet", "Purchases")]
-        public EntityCollection<Purchases> PurchasesSet
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_AccountsSet_PaymentDetailsSet", "AccountsSet")]
+        public AccountsSet AccountsSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Purchases>("Model1.FK_PurchasesSet_PaymentDetailsSet", "Purchases");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "AccountsSet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "AccountsSet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AccountsSet> AccountsSetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "AccountsSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Purchases>("Model1.FK_PurchasesSet_PaymentDetailsSet", "Purchases", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AccountsSet>("Model1.FK_AccountsSet_PaymentDetailsSet", "AccountsSet", value);
                 }
             }
         }
@@ -1033,36 +1187,26 @@ namespace OnlineStoreService
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Products")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="ProductsSet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Products : EntityObject
+    public partial class ProductsSet : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Products object.
+        /// Create a new ProductsSet object.
         /// </summary>
         /// <param name="productID">Initial value of the ProductID property.</param>
         /// <param name="productName">Initial value of the ProductName property.</param>
-        /// <param name="genre">Initial value of the Genre property.</param>
-        /// <param name="description">Initial value of the Description property.</param>
-        /// <param name="cover">Initial value of the Cover property.</param>
-        /// <param name="releaseDate">Initial value of the ReleaseDate property.</param>
-        /// <param name="producer">Initial value of the Producer property.</param>
-        /// <param name="score">Initial value of the Score property.</param>
-        public static Products CreateProducts(global::System.Int32 productID, global::System.String productName, global::System.String genre, global::System.String description, global::System.String cover, global::System.DateTime releaseDate, global::System.String producer, global::System.Int16 score)
+        /// <param name="price">Initial value of the Price property.</param>
+        public static ProductsSet CreateProductsSet(global::System.String productID, global::System.String productName, global::System.Decimal price)
         {
-            Products products = new Products();
-            products.ProductID = productID;
-            products.ProductName = productName;
-            products.Genre = genre;
-            products.Description = description;
-            products.Cover = cover;
-            products.ReleaseDate = releaseDate;
-            products.Producer = producer;
-            products.Score = score;
-            return products;
+            ProductsSet productsSet = new ProductsSet();
+            productsSet.ProductID = productID;
+            productsSet.ProductName = productName;
+            productsSet.Price = price;
+            return productsSet;
         }
 
         #endregion
@@ -1074,7 +1218,7 @@ namespace OnlineStoreService
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ProductID
+        public global::System.String ProductID
         {
             get
             {
@@ -1086,14 +1230,14 @@ namespace OnlineStoreService
                 {
                     OnProductIDChanging(value);
                     ReportPropertyChanging("ProductID");
-                    _ProductID = StructuralObject.SetValidValue(value, "ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value, false, "ProductID");
                     ReportPropertyChanged("ProductID");
                     OnProductIDChanged();
                 }
             }
         }
-        private global::System.Int32 _ProductID;
-        partial void OnProductIDChanging(global::System.Int32 value);
+        private global::System.String _ProductID;
+        partial void OnProductIDChanging(global::System.String value);
         partial void OnProductIDChanged();
     
         /// <summary>
@@ -1123,7 +1267,7 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Genre
         {
@@ -1135,7 +1279,7 @@ namespace OnlineStoreService
             {
                 OnGenreChanging(value);
                 ReportPropertyChanging("Genre");
-                _Genre = StructuralObject.SetValidValue(value, false, "Genre");
+                _Genre = StructuralObject.SetValidValue(value, true, "Genre");
                 ReportPropertyChanged("Genre");
                 OnGenreChanged();
             }
@@ -1147,7 +1291,7 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -1159,7 +1303,7 @@ namespace OnlineStoreService
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false, "Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }
@@ -1171,7 +1315,7 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Cover
         {
@@ -1183,7 +1327,7 @@ namespace OnlineStoreService
             {
                 OnCoverChanging(value);
                 ReportPropertyChanging("Cover");
-                _Cover = StructuralObject.SetValidValue(value, false, "Cover");
+                _Cover = StructuralObject.SetValidValue(value, true, "Cover");
                 ReportPropertyChanged("Cover");
                 OnCoverChanged();
             }
@@ -1195,9 +1339,9 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime ReleaseDate
+        public Nullable<global::System.DateTime> ReleaseDate
         {
             get
             {
@@ -1212,14 +1356,14 @@ namespace OnlineStoreService
                 OnReleaseDateChanged();
             }
         }
-        private global::System.DateTime _ReleaseDate;
-        partial void OnReleaseDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _ReleaseDate;
+        partial void OnReleaseDateChanging(Nullable<global::System.DateTime> value);
         partial void OnReleaseDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Producer
         {
@@ -1231,7 +1375,7 @@ namespace OnlineStoreService
             {
                 OnProducerChanging(value);
                 ReportPropertyChanging("Producer");
-                _Producer = StructuralObject.SetValidValue(value, false, "Producer");
+                _Producer = StructuralObject.SetValidValue(value, true, "Producer");
                 ReportPropertyChanged("Producer");
                 OnProducerChanged();
             }
@@ -1243,9 +1387,9 @@ namespace OnlineStoreService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int16 Score
+        public Nullable<global::System.Int16> Score
         {
             get
             {
@@ -1260,9 +1404,81 @@ namespace OnlineStoreService
                 OnScoreChanged();
             }
         }
-        private global::System.Int16 _Score;
-        partial void OnScoreChanging(global::System.Int16 value);
+        private Nullable<global::System.Int16> _Score;
+        partial void OnScoreChanging(Nullable<global::System.Int16> value);
         partial void OnScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Price
+        {
+            get
+            {
+                return _Price;
+            }
+            set
+            {
+                OnPriceChanging(value);
+                ReportPropertyChanging("Price");
+                _Price = StructuralObject.SetValidValue(value, "Price");
+                ReportPropertyChanged("Price");
+                OnPriceChanged();
+            }
+        }
+        private global::System.Decimal _Price;
+        partial void OnPriceChanging(global::System.Decimal value);
+        partial void OnPriceChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_Promos_ProductsSet1", "Promos")]
+        public EntityCollection<Promos> Promos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Promos>("Model1.FK_Promos_ProductsSet1", "Promos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Promos>("Model1.FK_Promos_ProductsSet1", "Promos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_PurchasesSet", "PurchasesSet")]
+        public EntityCollection<PurchasesSet> PurchasesSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PurchasesSet>("Model1.FK_PurchasesSet_PurchasesSet", "PurchasesSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PurchasesSet>("Model1.FK_PurchasesSet_PurchasesSet", "PurchasesSet", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1271,30 +1487,30 @@ namespace OnlineStoreService
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Purchases")]
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="Promos")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Purchases : EntityObject
+    public partial class Promos : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Purchases object.
+        /// Create a new Promos object.
         /// </summary>
         /// <param name="username">Initial value of the Username property.</param>
         /// <param name="productID">Initial value of the ProductID property.</param>
-        /// <param name="dateOfPurchase">Initial value of the DateOfPurchase property.</param>
-        /// <param name="paymentStatement">Initial value of the PaymentStatement property.</param>
-        /// <param name="purchaseCode">Initial value of the PurchaseCode property.</param>
-        public static Purchases CreatePurchases(global::System.String username, global::System.Int32 productID, global::System.DateTime dateOfPurchase, global::System.String paymentStatement, global::System.String purchaseCode)
+        /// <param name="discount">Initial value of the Discount property.</param>
+        /// <param name="beginDate">Initial value of the BeginDate property.</param>
+        /// <param name="endDate">Initial value of the EndDate property.</param>
+        public static Promos CreatePromos(global::System.String username, global::System.String productID, global::System.Int16 discount, global::System.DateTime beginDate, global::System.DateTime endDate)
         {
-            Purchases purchases = new Purchases();
-            purchases.Username = username;
-            purchases.ProductID = productID;
-            purchases.DateOfPurchase = dateOfPurchase;
-            purchases.PaymentStatement = paymentStatement;
-            purchases.PurchaseCode = purchaseCode;
-            return purchases;
+            Promos promos = new Promos();
+            promos.Username = username;
+            promos.ProductID = productID;
+            promos.Discount = discount;
+            promos.BeginDate = beginDate;
+            promos.EndDate = endDate;
+            return promos;
         }
 
         #endregion
@@ -1333,7 +1549,7 @@ namespace OnlineStoreService
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ProductID
+        public global::System.String ProductID
         {
             get
             {
@@ -1345,14 +1561,253 @@ namespace OnlineStoreService
                 {
                     OnProductIDChanging(value);
                     ReportPropertyChanging("ProductID");
-                    _ProductID = StructuralObject.SetValidValue(value, "ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value, false, "ProductID");
                     ReportPropertyChanged("ProductID");
                     OnProductIDChanged();
                 }
             }
         }
-        private global::System.Int32 _ProductID;
-        partial void OnProductIDChanging(global::System.Int32 value);
+        private global::System.String _ProductID;
+        partial void OnProductIDChanging(global::System.String value);
+        partial void OnProductIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Discount
+        {
+            get
+            {
+                return _Discount;
+            }
+            set
+            {
+                OnDiscountChanging(value);
+                ReportPropertyChanging("Discount");
+                _Discount = StructuralObject.SetValidValue(value, "Discount");
+                ReportPropertyChanged("Discount");
+                OnDiscountChanged();
+            }
+        }
+        private global::System.Int16 _Discount;
+        partial void OnDiscountChanging(global::System.Int16 value);
+        partial void OnDiscountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime BeginDate
+        {
+            get
+            {
+                return _BeginDate;
+            }
+            set
+            {
+                OnBeginDateChanging(value);
+                ReportPropertyChanging("BeginDate");
+                _BeginDate = StructuralObject.SetValidValue(value, "BeginDate");
+                ReportPropertyChanged("BeginDate");
+                OnBeginDateChanged();
+            }
+        }
+        private global::System.DateTime _BeginDate;
+        partial void OnBeginDateChanging(global::System.DateTime value);
+        partial void OnBeginDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value, "EndDate");
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private global::System.DateTime _EndDate;
+        partial void OnEndDateChanging(global::System.DateTime value);
+        partial void OnEndDateChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_Promos_AccountsSet1", "AccountsSet")]
+        public AccountsSet AccountsSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_Promos_AccountsSet1", "AccountsSet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_Promos_AccountsSet1", "AccountsSet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AccountsSet> AccountsSetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_Promos_AccountsSet1", "AccountsSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AccountsSet>("Model1.FK_Promos_AccountsSet1", "AccountsSet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_Promos_ProductsSet1", "ProductsSet")]
+        public ProductsSet ProductsSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_Promos_ProductsSet1", "ProductsSet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_Promos_ProductsSet1", "ProductsSet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ProductsSet> ProductsSetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_Promos_ProductsSet1", "ProductsSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductsSet>("Model1.FK_Promos_ProductsSet1", "ProductsSet", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model1", Name="PurchasesSet")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PurchasesSet : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PurchasesSet object.
+        /// </summary>
+        /// <param name="username">Initial value of the Username property.</param>
+        /// <param name="productID">Initial value of the ProductID property.</param>
+        /// <param name="dateOfPurchase">Initial value of the DateOfPurchase property.</param>
+        public static PurchasesSet CreatePurchasesSet(global::System.String username, global::System.String productID, global::System.DateTime dateOfPurchase)
+        {
+            PurchasesSet purchasesSet = new PurchasesSet();
+            purchasesSet.Username = username;
+            purchasesSet.ProductID = productID;
+            purchasesSet.DateOfPurchase = dateOfPurchase;
+            return purchasesSet;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                if (_Username != value)
+                {
+                    OnUsernameChanging(value);
+                    ReportPropertyChanging("Username");
+                    _Username = StructuralObject.SetValidValue(value, false, "Username");
+                    ReportPropertyChanged("Username");
+                    OnUsernameChanged();
+                }
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ProductID
+        {
+            get
+            {
+                return _ProductID;
+            }
+            set
+            {
+                if (_ProductID != value)
+                {
+                    OnProductIDChanging(value);
+                    ReportPropertyChanging("ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value, false, "ProductID");
+                    ReportPropertyChanged("ProductID");
+                    OnProductIDChanged();
+                }
+            }
+        }
+        private global::System.String _ProductID;
+        partial void OnProductIDChanging(global::System.String value);
         partial void OnProductIDChanged();
     
         /// <summary>
@@ -1378,54 +1833,6 @@ namespace OnlineStoreService
         private global::System.DateTime _DateOfPurchase;
         partial void OnDateOfPurchaseChanging(global::System.DateTime value);
         partial void OnDateOfPurchaseChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String PaymentStatement
-        {
-            get
-            {
-                return _PaymentStatement;
-            }
-            set
-            {
-                OnPaymentStatementChanging(value);
-                ReportPropertyChanging("PaymentStatement");
-                _PaymentStatement = StructuralObject.SetValidValue(value, false, "PaymentStatement");
-                ReportPropertyChanged("PaymentStatement");
-                OnPaymentStatementChanged();
-            }
-        }
-        private global::System.String _PaymentStatement;
-        partial void OnPaymentStatementChanging(global::System.String value);
-        partial void OnPaymentStatementChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String PurchaseCode
-        {
-            get
-            {
-                return _PurchaseCode;
-            }
-            set
-            {
-                OnPurchaseCodeChanging(value);
-                ReportPropertyChanging("PurchaseCode");
-                _PurchaseCode = StructuralObject.SetValidValue(value, false, "PurchaseCode");
-                ReportPropertyChanged("PurchaseCode");
-                OnPurchaseCodeChanged();
-            }
-        }
-        private global::System.String _PurchaseCode;
-        partial void OnPurchaseCodeChanging(global::System.String value);
-        partial void OnPurchaseCodeChanged();
 
         #endregion
 
@@ -1437,16 +1844,16 @@ namespace OnlineStoreService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails")]
-        public PaymentDetails PaymentDetailsSet
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_AccountsSet", "AccountsSet")]
+        public AccountsSet AccountsSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetails>("Model1.FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_PurchasesSet_AccountsSet", "AccountsSet").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetails>("Model1.FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_PurchasesSet_AccountsSet", "AccountsSet").Value = value;
             }
         }
         /// <summary>
@@ -1454,17 +1861,55 @@ namespace OnlineStoreService
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<PaymentDetails> PaymentDetailsSetReference
+        public EntityReference<AccountsSet> AccountsSetReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentDetails>("Model1.FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AccountsSet>("Model1.FK_PurchasesSet_AccountsSet", "AccountsSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentDetails>("Model1.FK_PurchasesSet_PaymentDetailsSet", "PaymentDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AccountsSet>("Model1.FK_PurchasesSet_AccountsSet", "AccountsSet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model1", "FK_PurchasesSet_PurchasesSet", "ProductsSet")]
+        public ProductsSet ProductsSet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_PurchasesSet_PurchasesSet", "ProductsSet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_PurchasesSet_PurchasesSet", "ProductsSet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ProductsSet> ProductsSetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductsSet>("Model1.FK_PurchasesSet_PurchasesSet", "ProductsSet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductsSet>("Model1.FK_PurchasesSet_PurchasesSet", "ProductsSet", value);
                 }
             }
         }

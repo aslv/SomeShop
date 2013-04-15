@@ -22,6 +22,8 @@ namespace OnlineStoreService
         [OperationContract]
         bool login(string name, string password);
 
+        
+
         // TODO: Add your service operations here
     }
 

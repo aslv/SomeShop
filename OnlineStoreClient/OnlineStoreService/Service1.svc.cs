@@ -37,15 +37,15 @@ namespace OnlineStoreService
         {
             Model1Container provider = new Model1Container();
                         //Example of using LINQ to access the model.
-<<<<<<< HEAD
+
             //var names = from d in provider.Entity1Set
             //            where d.Id > 20
             //            select d;
-=======
+
             var names = from d in provider.AccountsSet 
                         where d.Username==name && d.Password==password
                         select d.Username;
->>>>>>> Работеща връзка към Базата от данни
+
 
             if (names.Contains(name))
             {
@@ -56,5 +56,7 @@ namespace OnlineStoreService
                 return false;
             }
         }
+
+
     }
 }
