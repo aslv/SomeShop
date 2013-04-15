@@ -15,8 +15,13 @@
         <Label Content="Password" Margin="88,95,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <PasswordBox x:Name="pwPass" HorizontalAlignment="Left" Height="23" Margin="88,126,0,0"  VerticalAlignment="Top" Width="240"/>
         <CheckBox Content="Remember username and password " HorizontalAlignment="Left" Margin="88,163,0,0" VerticalAlignment="Top" Foreground="#FF93B56B"/>
+<<<<<<< HEAD
         <TextBlock x:Name="lbReg" HorizontalAlignment="Left" Margin="338,10,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Foreground="#FF93B46B" Cursor="Hand" TextDecorations="Underline" MouseLeftButtonUp="lbReg_MouseLeftButtonUp"/>
         <MyNamespace:LoginBtn Content="LoginBtn" HorizontalAlignment="Left" Height="28" Margin="88,198,0,-52" VerticalAlignment="Top" Width="80">
+=======
+        <TextBlock HorizontalAlignment="Left" Margin="339,10,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Foreground="#FF93B46B" Cursor="Hand" TextDecorations="Underline"/>
+        <MyNamespace:LoginBtn Content="LoginBtn" HorizontalAlignment="Left" Height="28" Margin="88,198,0,-52" VerticalAlignment="Top" Width="80" Click="LoginBtn_Click_1">
+>>>>>>> Работеща връзка към Базата от данни
             <MyNamespace:LoginBtn.Background>
                 <ImageBrush ImageSource="img/signInButton.png"/>
             </MyNamespace:LoginBtn.Background>

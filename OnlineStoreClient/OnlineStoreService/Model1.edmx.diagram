@@ -5,10 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c9aff1fc1e9a47a6a35f499cb7dca4a6" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.Accounts" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Accounts" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model1.PaymentDetails" Width="1.5" PointX="5.625" PointY="0.75" />
-        <EntityTypeShape EntityType="Model1.Purchases" Width="1.5" PointX="7.625" PointY="1.125" />
+        <EntityTypeShape EntityType="Model1.Purchases" Width="1.75" PointX="7.875" PointY="1" />
         <EntityTypeShape EntityType="Model1.Products" Width="1.5" PointX="10.125" PointY="1.75" />
+        <EntityTypeShape EntityType="Model1.sysdiagrams" Width="1.5" PointX="6.15863054905023" PointY="18.754002877862195" />
+        <AssociationConnector Association="Model1.FK_PurchasesSet_PaymentDetailsSet" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
