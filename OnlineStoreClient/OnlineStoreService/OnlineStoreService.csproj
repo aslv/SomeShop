@@ -91,6 +91,7 @@
     </EntityDeploy>
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">

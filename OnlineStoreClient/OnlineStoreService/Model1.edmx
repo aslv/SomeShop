@@ -45,6 +45,7 @@
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="FirstNameAcc" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LastNameAcc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AccBalance" Type="money" />
           <Property Name="Role" Type="bit" />
         </EntityType>
         <EntityType Name="PaymentDetailsSet">
@@ -287,6 +288,7 @@
           <NavigationProperty Name="PaymentDetailsSet" Relationship="Model1.FK_AccountsSet_PaymentDetailsSet" FromRole="AccountsSet" ToRole="PaymentDetailsSet" />
           <NavigationProperty Name="Promos" Relationship="Model1.FK_Promos_AccountsSet1" FromRole="AccountsSet" ToRole="Promos" />
           <NavigationProperty Name="PurchasesSet" Relationship="Model1.FK_PurchasesSet_AccountsSet" FromRole="AccountsSet" ToRole="PurchasesSet" />
+          <Property Type="Decimal" Name="AccBalance" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="PaymentDetailsSet">
           <Key>
@@ -448,6 +450,7 @@
           <EntitySetMapping Name="AccountsSet">
             <EntityTypeMapping TypeName="Model1.AccountsSet">
               <MappingFragment StoreEntitySet="AccountsSet">
+                <ScalarProperty Name="AccBalance" ColumnName="AccBalance" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="LastNameAcc" ColumnName="LastNameAcc" />
                 <ScalarProperty Name="FirstNameAcc" ColumnName="FirstNameAcc" />

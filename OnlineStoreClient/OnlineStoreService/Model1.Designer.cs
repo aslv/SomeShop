@@ -735,6 +735,30 @@ namespace OnlineStoreService
         private Nullable<global::System.Boolean> _Role;
         partial void OnRoleChanging(Nullable<global::System.Boolean> value);
         partial void OnRoleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AccBalance
+        {
+            get
+            {
+                return _AccBalance;
+            }
+            set
+            {
+                OnAccBalanceChanging(value);
+                ReportPropertyChanging("AccBalance");
+                _AccBalance = StructuralObject.SetValidValue(value, "AccBalance");
+                ReportPropertyChanged("AccBalance");
+                OnAccBalanceChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AccBalance;
+        partial void OnAccBalanceChanging(Nullable<global::System.Decimal> value);
+        partial void OnAccBalanceChanged();
 
         #endregion
 

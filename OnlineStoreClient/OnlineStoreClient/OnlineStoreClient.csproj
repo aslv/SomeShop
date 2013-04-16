@@ -159,6 +159,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="forms\img\loginControlBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\CancelButton.png" />
+    <Resource Include="forms\img\CancelButtonDown.png" />
+    <Resource Include="forms\img\RegisterButton.png" />
+    <Resource Include="forms\img\RegisterButtonDown.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="forms\img\signInButton.png" />
     <Resource Include="forms\img\signInButtonDown.png" />
   </ItemGroup>
