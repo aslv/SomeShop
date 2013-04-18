@@ -23,5 +23,10 @@
                 <ImageBrush ImageSource="img/signInButton.png"/>
             </MyNamespace:LoginBtn.Background>
         </MyNamespace:LoginBtn>
+        <MyNamespace:CancelButton Content="CancelButton" HorizontalAlignment="Left" Height="28" Margin="248,198,0,0" VerticalAlignment="Top" Width="80">
+            <MyNamespace:CancelButton.Background>
+                <ImageBrush ImageSource="img/CancelButton.png"/>
+            </MyNamespace:CancelButton.Background>
+        </MyNamespace:CancelButton>
     </Grid>
 </UserControl>
