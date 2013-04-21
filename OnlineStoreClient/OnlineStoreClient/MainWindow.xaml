@@ -3,5 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:asdhologin="clr-namespace:Login" x:Class="OnlineStoreClient.MainWindow"
         Title="MainWindow" Height="512.917" Width="970.417">
-    <Grid x:Name="workArea" HorizontalAlignment="Left" Width="960"/>
+    <Grid x:Name="workArea" HorizontalAlignment="Left" Width="960" Background="#FF373834">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="416" Margin="0,67,0,0" VerticalAlignment="Top" Width="960" OpacityMask="#FF373834" BorderBrush="#FF373834" Foreground="#FF373834">
+            <TabItem x:Name="TabPromos" Header="Promos" Margin="100,0,-100,0" RenderTransformOrigin="0.865,0.565" HorizontalAlignment="Left" Width="90" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black">
+                <Grid x:Name="SbPromos" Background="#FF373834" Margin="0,0,-1,-4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabGame" Header="Game" Margin="112,0,-112,0" Height="45" RenderTransformOrigin="0.865,0.565" Width="90" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black">
+                <Grid x:Name="SbGeme" Margin="0,0,-1,-5" Background="#FF373834" OpacityMask="#FF373834"/>
+            </TabItem>
+            <TabItem x:Name="TabTop10" Header="Top10" Margin="-180,0,137,0" RenderTransformOrigin="0.535,-1.5" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" >
+                <ScrollBar x:Name="SbTop10" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="960" Margin="0,0,-10,-4" Background="#FF373834"/>
+            </TabItem>
+            <TabItem x:Name="TabProducts" Header="Products" Margin="0,0,-81,0" Height="45" VerticalAlignment="Top" RenderTransformOrigin="-0.269,1.632" Foreground="#FF93B56B" HorizontalAlignment="Right" Width="90" Background="#FF373834" BorderBrush="Black">
+                <ScrollBar x:Name="SbProducts" HorizontalAlignment="Left" Height="356" VerticalAlignment="Top" Width="950" Margin="0,0,0,-6" Background="#FF373834"/>
+            </TabItem>
+            <TabItem x:Name="TabSettings" Header="Settings" Margin="96,0,-129,0" Height="45" RenderTransformOrigin="-0.04,-2.662" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black">
+                <Grid x:Name="SbSettings" Background="#FF373834" Margin="0,0,-1,-4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="823*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBox x:Name="TxSearch" HorizontalAlignment="Left" Height="26" Margin="704,80,0,0" TextWrapping="Wrap" Text="Search the store" VerticalAlignment="Top" Width="160" TextChanged="TextBox_TextChanged_1" Foreground="#FF93B56B"/>
+        <Image HorizontalAlignment="Left" Height="122" Margin="154,168,0,0" VerticalAlignment="Top" Width="225"/>
+        <ScrollBar HorizontalAlignment="Left" Height="366" Margin="941,117,0,0" VerticalAlignment="Top" Width="14"/>
+        <Label Content="Label\cnha@AJBScfJLABSCDJLBCajlbv'fbfkja&#xD;&#xA;jbzdjbajldfhasldfhlf&#xD;&#xA;asfjnalfn&#xD;&#xA;asdfnl&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;                                                                               cena:" HorizontalAlignment="Left" Margin="434,168,0,0" VerticalAlignment="Top" Height="122" Width="371" Foreground="#FF93B56B"/>
+    </Grid>
 </Window>

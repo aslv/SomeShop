@@ -10,20 +10,20 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/loginControlBack.png"/>
         </Grid.Background>
-        <Label Content="Username" Margin="88,36,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5"/>
+        <Label x:Name="txUserName" Content="Username" Margin="88,36,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="88,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label Content="Password" Margin="88,95,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5"/>
+        <Label x:Name="txPassword" Content="Password" Margin="88,95,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <PasswordBox x:Name="pwPass" HorizontalAlignment="Left" Height="23" Margin="88,126,0,0"  VerticalAlignment="Top" Width="240"/>
-        <CheckBox Content="Remember username and password " HorizontalAlignment="Left" Margin="88,163,0,0" VerticalAlignment="Top" Foreground="#FF93B56B"/>
+        <CheckBox x:Name="Remember" Content="Remember username and password " HorizontalAlignment="Left" Margin="88,163,0,0" VerticalAlignment="Top" Foreground="#FF93B56B"/>
 
         <TextBlock x:Name="lbReg" HorizontalAlignment="Left" Margin="338,10,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Foreground="#FF93B46B" Cursor="Hand" TextDecorations="Underline" MouseLeftButtonUp="lbReg_MouseLeftButtonUp"/>
-        <TextBlock HorizontalAlignment="Left" Margin="339,10,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Foreground="#FF93B46B" Cursor="Hand" TextDecorations="Underline"/>
+        <TextBlock x:Name="txtRegister" HorizontalAlignment="Left" Margin="339,10,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Foreground="#FF93B46B" Cursor="Hand" TextDecorations="Underline"/>
         <MyNamespace:LoginBtn x:Name="LoginBtn" Content="LoginBtn" HorizontalAlignment="Left" Height="28" Margin="88,198,0,-52" VerticalAlignment="Top" Width="80" Click="LoginBtn_Click_1">
             <MyNamespace:LoginBtn.Background>
                 <ImageBrush ImageSource="img/signInButton.png"/>
             </MyNamespace:LoginBtn.Background>
         </MyNamespace:LoginBtn>
-        <MyNamespace:CancelButton Content="CancelButton" HorizontalAlignment="Left" Height="28" Margin="248,198,0,0" VerticalAlignment="Top" Width="80">
+        <MyNamespace:CancelButton x:Name="CancelBtn" Content="CancelButton" HorizontalAlignment="Left" Height="28" Margin="248,198,0,0" VerticalAlignment="Top" Width="80">
             <MyNamespace:CancelButton.Background>
                 <ImageBrush ImageSource="img/CancelButton.png"/>
             </MyNamespace:CancelButton.Background>

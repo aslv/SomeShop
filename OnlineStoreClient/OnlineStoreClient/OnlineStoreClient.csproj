@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="forms\CancelButton.cs" />
+    <Compile Include="forms\RegisterBtn.cs" />
     <Compile Include="forms\LoginBtn.cs">
       <SubType>Code</SubType>
     </Compile>

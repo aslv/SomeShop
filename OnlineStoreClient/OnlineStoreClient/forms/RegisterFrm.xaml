@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="OnlineStoreClient.forms.Register_form"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OnlineStoreClient.forms" xmlns:Login="clr-namespace:Login" x:Class="OnlineStoreClient.forms.Register_form" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="0,0,-176,-52">
@@ -10,21 +11,31 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-                <ImageBrush ImageSource="img/loginControlBack.png"/>
-            </Grid.Background>
-            <Label x:Name="txFistName" Content="First Name" Margin="21,10,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="28" Margin="197,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
-            <Label x:Name="txRePass" Content="Re-Enter Pass" Margin="21,142,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <PasswordBox x:Name="pwPass" HorizontalAlignment="Left" Height="28" Margin="197,109,0,0"  VerticalAlignment="Top" Width="246"/>
-            <Label x:Name="txLastName" Content="Last Name" Margin="21,43,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="28" Margin="197,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
-            <Label x:Name="txPass" Content="Enter Pass" Margin="21,109,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <Label x:Name="txAccount" Content="Account Name" Margin="21,76,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <Label x:Name="txEmail" Content="Email Address" Margin="21,175,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-            <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="28" Margin="197,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
-            <TextBox x:Name="tbAccount" HorizontalAlignment="Left" Height="28" Margin="197,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
-            <PasswordBox x:Name="pwRePass" HorizontalAlignment="Left" Height="28" Margin="197,142,0,0"  VerticalAlignment="Top" Width="246"/>
-        <RadioButton Content="RadioButton" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,233,0,0"/>
-        <RadioButton Content="RadioButton" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,233,0,0"/>
+            <ImageBrush ImageSource="img/loginControlBack.png"/>
+        </Grid.Background>
+        <Label x:Name="txFistName" Content="First Name" Margin="21,10,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="28" Margin="197,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <Label x:Name="txRePass" Content="Re-Enter Pass" Margin="21,142,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <PasswordBox x:Name="pwPass" HorizontalAlignment="Left" Height="28" Margin="197,109,0,0"  VerticalAlignment="Top" Width="246"/>
+        <Label x:Name="txLastName" Content="Last Name" Margin="21,43,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="28" Margin="197,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <Label x:Name="txPass" Content="Enter Pass" Margin="21,109,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <Label x:Name="txAccount" Content="Account Name" Margin="21,76,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <Label x:Name="txEmail" Content="Email Address" Margin="21,175,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="28" Margin="197,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+        <TextBox x:Name="tbAccount" HorizontalAlignment="Left" Height="28" Margin="197,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <PasswordBox x:Name="pwRePass" HorizontalAlignment="Left" Height="28" Margin="197,142,0,0"  VerticalAlignment="Top" Width="246"/>
+        <RadioButton x:Name="WomanBtn" Content="Woman" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="282,233,0,0" Width="100"/>
+        <RadioButton x:Name="ManBtn" Content="Man" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,233,0,0" Width="94"/>
+        <Login:CancelButton x:Name="CancelBtn" Content="CancelButton" HorizontalAlignment="Left" Height="40" Margin="282,289,0,0" VerticalAlignment="Top" Width="100">
+            <Login:CancelButton.Background>
+                <ImageBrush ImageSource="img/CancelButton.png"/>
+            </Login:CancelButton.Background>
+        </Login:CancelButton>
+        <Login:RegisterBtn x:Name="RegisterBtn" HorizontalAlignment="Left" Height="40" Margin="117,289,0,0" VerticalAlignment="Top" Width="94">
+            <Login:RegisterBtn.Background>
+                <ImageBrush ImageSource="img/RegisterButton.png"/>
+            </Login:RegisterBtn.Background>
+        </Login:RegisterBtn>
     </Grid>
 </UserControl>
