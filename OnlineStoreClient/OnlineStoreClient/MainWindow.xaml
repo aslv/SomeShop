@@ -38,5 +38,10 @@
         <Image HorizontalAlignment="Left" Height="122" Margin="154,168,0,0" VerticalAlignment="Top" Width="225"/>
         <ScrollBar HorizontalAlignment="Left" Height="366" Margin="941,117,0,0" VerticalAlignment="Top" Width="14"/>
         <Label Content="Label\cnha@AJBScfJLABSCDJLBCajlbv'fbfkja&#xD;&#xA;jbzdjbajldfhasldfhlf&#xD;&#xA;asfjnalfn&#xD;&#xA;asdfnl&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;                                                                               cena:" HorizontalAlignment="Left" Margin="434,168,0,0" VerticalAlignment="Top" Height="122" Width="371" Foreground="#FF93B56B"/>
+        <Rectangle x:Name="backRect" HorizontalAlignment="Left" Height="483" Stroke="Black" VerticalAlignment="Top" Width="788">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF4F4F5" Opacity="0.3"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Window>

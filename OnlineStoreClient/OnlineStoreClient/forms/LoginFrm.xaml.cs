@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OnlineStoreClient;
 
 namespace Login
 {
@@ -42,8 +43,32 @@ namespace Login
                 MessageBox.Show("Ne brao");
             }
         }
+
+        private void LoginBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        private void CancelBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+                        
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
+
+        private void Grid_Initialized_1(object sender, EventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            
+            parentWindow.get = false;
+        }
     
 
       
     }
+
 }
