@@ -33,7 +33,7 @@ namespace OnlineStoreService
         }
 
 
-        public bool login(string name, string password)
+        public bool Login(string name, string password)
         {
             Model1Container provider = new Model1Container();
                         //Example of using LINQ to access the model.

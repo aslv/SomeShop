@@ -64,7 +64,7 @@ namespace Login
         {
             Window parentWindow = Window.GetWindow(this);
             
-            parentWindow.get = false;
+           // parentWindow.get = false;
         }
     
 
