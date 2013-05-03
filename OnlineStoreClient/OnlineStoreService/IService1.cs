@@ -33,6 +33,7 @@ namespace OnlineStoreService
         /// <returns>An array of products containing product name, genre, description, cover, producer and price</returns>
         [OperationContract]
         Product[] GetProductList();
+
         /// <summary>
         /// Triggered when a client uses the "Search the store" function (Control name=TxSearch).
         /// </summary>
@@ -40,18 +41,21 @@ namespace OnlineStoreService
         /// matching the data string (only 1 is enough, not all)</returns>
         [OperationContract]
         Product[] GetSearchedProductsList(string data);
+
         /// <summary>
         /// Triggered when a client presses the Top10 tab.
         /// </summary>
         /// <returns>An array containig the 10 products with highest scores, containing product name, genre, description, cover, producer and price</returns>
         [OperationContract]
         Product[] GetTopTenProductsList();
+
         /// <summary>
         /// Triggered when a client presses the Promo tab.
         /// </summary>
         /// <returns>An array containig all promotional products, containing product name, genre, description, cover, producer and price</returns>
         [OperationContract]
         Product[] GetPromoProductsList();
+
         /// <summary>
         /// Triggered when an admin uses the "Add new game" function. Adds a new product to the database.
         /// </summary>
@@ -66,12 +70,14 @@ namespace OnlineStoreService
         /// <param name="price">The price of the product</param>
         [OperationContract]
         void addProduct(string productID, string name, string genre, string description, string cover, DateTime releaseDate, string producer, int score, decimal price);
+
         /// <summary>
         /// Remove the product with the specified id from the database.
         /// </summary>
         /// <param name="productID">The ID of the product to be removed</param>
         [OperationContract]
         void deleteProduct(string productID);
+
         /// <summary>
         /// Triggered when an admin uses the "Add a promotion" function.
         /// </summary>
@@ -81,6 +87,7 @@ namespace OnlineStoreService
         /// <param name="endDate">Th end date of the promotion</param>
         [OperationContract]
         void addPromotion(string productID, int discount, DateTime beginDate, DateTime endDate);
+
         /// <summary>
         /// Triggered when a user makes an order.
         /// </summary>
@@ -89,8 +96,7 @@ namespace OnlineStoreService
         /// <returns>true if succesful, false if not</returns>
         [OperationContract]
         bool orderProducts(string Username, string[] productIDs);
-            // TODO: Add your service operations here
-       
+
     }
 
 
