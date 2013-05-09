@@ -1,0 +1,8 @@
+Usename   ParvoIme  PoslednoIme  Dyrjava       Town	        District       kodPosht3-5   Adres                        KartaNum12      SekKog3
+1				 Canada	       Surrey           Surrey         309           Fraser Hwy                   986754243676    898
+2				 Italy         Napoli           San Giuseppe   1091          San Carlo       		  456783563240    651
+3                                Spain         Valencia         Valencia       6598	     Calle Padilla    		  655309863798    154
+4                                Bulgaria      Sofia            Pernik         671           kardjali 			  396756041269    989
+6				 Belgium       Brussels         Ganshoren      01094	     Lessenstraat                 153498673470    482
+7				 Germany       Berlin 	 	Wedding        541	     Schulstrave 40    		  677553e56479    334
+8      				 Russia	       St. Petersburg 	St. Petersburg 7001          street Chernyahovskogo       348967451243    235

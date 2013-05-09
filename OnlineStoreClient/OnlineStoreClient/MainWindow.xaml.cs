@@ -43,6 +43,10 @@ namespace OnlineStoreClient
         {
 
         }
-        
+
+        private void SbTop10_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }

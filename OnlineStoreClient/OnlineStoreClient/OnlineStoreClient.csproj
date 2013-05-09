@@ -172,6 +172,45 @@
     <Resource Include="forms\img\signInButton.png" />
     <Resource Include="forms\img\signInButtonDown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dishonored.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Antichamber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bioshock Infinite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Counter-Strike Global Offensive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Defiance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FINAL FANTASY® XI Ultimate Collection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="God Mode.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="The Elder Scrolls V Skyrim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Microsoft Studios.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Torchlight II.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TWarframe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Metro Last Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ORION Dino Horde.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
