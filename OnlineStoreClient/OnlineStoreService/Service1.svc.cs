@@ -62,7 +62,9 @@ namespace OnlineStoreService
         {
             var products = from d in provider.ProductsSet
                            select d;
-            return null;
+            Product[] result = new Product[products.ToList().Count];
+            result = ConvertProductSetToProduct(products.ToList());
+            return result;
         }
 
         public Product[] GetSearchedProductsList(string data)
@@ -98,6 +100,22 @@ namespace OnlineStoreService
         public bool orderProducts(string Username, string[] productIDs)
         {
             throw new NotImplementedException();
+        }
+        private Product[] ConvertProductSetToProduct(List<ProductsSet> source)
+        {
+            Product[] result = new Product[source.Count];
+            for (int i = 0; i < source.Count; i++)
+            {
+                result[i].ID = source[i].ProductID;
+                result[i].Name = source[i].ProductName;
+                result[i].Genre = source[i].Genre;
+                result[i].Description = source[i].Description;
+                result[i].Cover = source[i].Cover;
+                result[i].Producer = source[i].Producer;
+                result[i].Price = source[i].Price;
+            }
+
+            return result;
         }
     }
 }
