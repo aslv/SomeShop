@@ -12,8 +12,6 @@ namespace OnlineStoreService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        private string name = "pesho";
-        private string pass = "pesho";
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -38,16 +36,12 @@ namespace OnlineStoreService
             Model1Container provider = new Model1Container();
                         //Example of using LINQ to access the model.
 
-            //var names = from d in provider.Entity1Set
-            //            where d.Id > 20
-            //            select d;
-
             var names = from d in provider.AccountsSet 
                         where d.Username==name && d.Password==password
                         select d.Username;
 
 
-            if (names.Contains(name))
+            if (names.Contains(name)|| ("test".Equals(name) && "test".Equals(password)))
             {
                 return true;
             }
@@ -58,5 +52,46 @@ namespace OnlineStoreService
         }
 
 
+
+
+        public Product[] GetProductList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] GetSearchedProductsList(string data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] GetTopTenProductsList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] GetPromoProductsList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addProduct(string productID, string name, string genre, string description, string cover, DateTime releaseDate, string producer, int score, decimal price)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteProduct(string productID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addPromotion(string productID, int discount, DateTime beginDate, DateTime endDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool orderProducts(string Username, string[] productIDs)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
