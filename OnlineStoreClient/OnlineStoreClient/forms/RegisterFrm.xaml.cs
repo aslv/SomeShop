@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Login;
 namespace OnlineStoreClient.forms
 {
     /// <summary>
@@ -20,9 +20,11 @@ namespace OnlineStoreClient.forms
     /// </summary>
     public partial class Register_form : UserControl
     {
-        public Register_form()
+        LoginFrm parent;
+        public Register_form(LoginFrm parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
     }
 }

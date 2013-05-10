@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OnlineStoreClient;
-
+using System.IO;
+using OnlineStoreClient.forms;
 namespace Login
 {
     /// <summary>
@@ -21,37 +22,44 @@ namespace Login
     /// </summary>
     public partial class LoginFrm : UserControl
     {
-        public LoginFrm()
+        private MainWindow parent;
+        public LoginFrm(MainWindow parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
 
         private void lbReg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+           
+            
         }
         private void LoginBtn_Click_1(object sender, RoutedEventArgs e)
         {
             OnlineStoreClient.ServiceReference1.Service1Client _provider = new OnlineStoreClient.ServiceReference1.Service1Client();
-            var loged=_provider.login(tbUsername.Text, pwPass.Password);
+            var loged=_provider.Login(tbUsername.Text, pwPass.Password);
             if (loged)
             {
-                MessageBox.Show("Brao");
+                if (rememberInfo.IsChecked.Value)
+                {
+                    System.IO.StreamWriter file = new System.IO.StreamWriter("info.txt");
+                    file.WriteLine(tbUsername.Text + " " + pwPass.Password + "\n");
+                    file.Close();
+                }
+                parent.blocktangle.Opacity = 100;
+                parent.blocktangle.Width = 0;
+                parent.blocktangle.Height = 0;
+                this.Visibility = Visibility.Collapsed;
             }
             else
             {
-                MessageBox.Show("Ne brao");
+                this.errorBlock.Content = "Incorret Username/Password";
             }
         }
 
         private void LoginBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-        }
-
-        private void CancelBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-                        
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
@@ -62,10 +70,27 @@ namespace Login
 
         private void Grid_Initialized_1(object sender, EventArgs e)
         {
-            Window parentWindow = Window.GetWindow(this);
-            
-           // parentWindow.get = false;
+            if(File.Exists("info.txt"))
+            {
+                string line;
+                using (StreamReader reader = new StreamReader("info.txt"))
+                {
+                    line = reader.ReadLine();
+                }
+
+                    string[] info = line.Split(' ');
+                    tbUsername.Text = info[0];
+                    pwPass.Password = info[1];
+            }
         }
+
+        private void txtRegister_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            Register_form registerFrm = new Register_form(this);
+            parent.workArea.Children.Add(registerFrm);
+        }
+
     
 
       

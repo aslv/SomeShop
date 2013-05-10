@@ -22,12 +22,14 @@ namespace OnlineStoreClient
     {
 
         private ServiceReference1.Service1Client _provider = new ServiceReference1.Service1Client();
-        Login.LoginFrm log = new Login.LoginFrm();
+        Login.LoginFrm loginForm;
 
         public MainWindow()
         {
             InitializeComponent();
-            workArea.Children.Add(log);
+            loginForm = new Login.LoginFrm(this);
+            workArea.Children.Add(loginForm);
+            var productlist = _provider.GetProductList();
         }
 
         private void logIn_Click(object sender, RoutedEventArgs e)

@@ -7,42 +7,49 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TabControl HorizontalAlignment="Left" Height="416" Margin="0,67,0,0" VerticalAlignment="Top" Width="960" OpacityMask="#FF373834" BorderBrush="#FF373834" Foreground="#FF373834">
+        <TabControl HorizontalAlignment="Left" Height="416" Margin="0,67,0,0" VerticalAlignment="Top" Width="960" OpacityMask="#FF373834" BorderBrush="#FF373834" Foreground="#FF373834" Background="#FF6C6C6C">
             <TabItem x:Name="TabPromos" Header="Promos" Margin="0,0,-110,0" RenderTransformOrigin="0.865,0.565" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" HorizontalAlignment="Right" Width="90" Height="45">
-                <Grid x:Name="SbPromos" Background="#FF373834" Margin="-14,0,13,-15" Height="374" VerticalAlignment="Bottom">
-                    <Image x:Name="imgPromos2" Margin="35,30,553,117" Source="Metro Last Light.jpg" Stretch="Fill"/>
-                    <Label x:Name="txPromos1"  Content="It Is the Year 2034.&#xD;&#xA;&#xD;&#xA;Beneath the ruins of post-apocalyptic Moscow, in the tunnels of the Metro, the remnants &#xD;&#xA;of mankind are besieged by deadly threats from outside – and within. Mutants stalk the &#xD;&#xA;catacombs beneath the desolate surface, and hunt amidst the poisoned skies above.&#xD;&#xA;&#xD;&#xA;But rather than stand united, the station-cities of the Metro are locked in a struggle &#xD;&#xA;for the ultimate power, a doomsday device from the military vaults of D6. A civil war &#xD;&#xA;is stirring that could wipe humanity from the face of the earth forever.&#xD;&#xA;&#xD;&#xA;As Artyom, burdened by guilt but driven by hope, you hold the key to our survival – the &#xD;&#xA;last light in our darkest hour…" HorizontalAlignment="Left" Margin="500,86,0,0" VerticalAlignment="Top" Height="171" Width="406" Foreground="#FF93B56B"/>
-                    <Label x:Name="txPromos1_Copy"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="420,30,0,0" VerticalAlignment="Top" Height="35" Width="328" Foreground="#FF93B56B"/>
+                <Grid x:Name="SbPromos" Background="#FF6C6C6C" Margin="-14,0,13,-15" Height="374" VerticalAlignment="Bottom">
+                    <Image x:Name="gameCover" Margin="35,30,553,117" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameDescription"  Content="It Is the Year 2034.&#xD;&#xA;&#xD;&#xA;Beneath the ruins of post-apocalyptic Moscow, in the tunnels of the Metro, the remnants &#xD;&#xA;of mankind are besieged by deadly threats from outside – and within. Mutants stalk the &#xD;&#xA;catacombs beneath the desolate surface, and hunt amidst the poisoned skies above.&#xD;&#xA;&#xD;&#xA;But rather than stand united, the station-cities of the Metro are locked in a struggle &#xD;&#xA;for the ultimate power, a doomsday device from the military vaults of D6. A civil war &#xD;&#xA;is stirring that could wipe humanity from the face of the earth forever.&#xD;&#xA;&#xD;&#xA;As Artyom, burdened by guilt but driven by hope, you hold the key to our survival – the &#xD;&#xA;last light in our darkest hour…" HorizontalAlignment="Left" Margin="500,86,0,0" VerticalAlignment="Top" Height="171" Width="406" Foreground="#FF93B56B"/>
+                    <Label x:Name="gameTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="420,30,0,0" VerticalAlignment="Top" Height="35" Width="328" Foreground="#FF93B56B"/>
+                    <Button x:Name="nextBtn_Copy" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="528,337,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="prevButton_Copy" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="390,337,0,0" VerticalAlignment="Top" Width="75"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
             <TabItem x:Name="TabTop10" Header="Top10" Margin="141,0,-141,0" RenderTransformOrigin="0.535,-1.5" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" HorizontalAlignment="Left" Width="90"  Height="45">
-                <Grid x:Name="SbTop10" Background="#FF373834" Margin="-9,-9,8,-6" Height="374" VerticalAlignment="Bottom">
-                    <Image x:Name="imgTop1" Margin="153,30,469,88" Source="Antichamber.jpg" Stretch="Fill"/>
-                    <Image x:Name="imgTop2" Margin="0,291,605,-96" Source="The Elder Scrolls V Skyrim.jpg" Stretch="Fill"/>
-                    <ScrollBar HorizontalAlignment="Left" Height="373" Margin="924,1,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="txPromos1_Copy1"  Content="Antichamber" HorizontalAlignment="Left" Margin="528,30,0,0" VerticalAlignment="Top" Height="75" Width="328" Foreground="#FF93B56B"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="746,192,0,0" VerticalAlignment="Top" Height="94" Width="143"/>
-                    <Label Content="1" HorizontalAlignment="Left" Margin="24,96,0,0" VerticalAlignment="Top" Height="125" Width="101"/>
-
-
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="TabProducts" Header="Products" Margin="-193,0,193,0"  VerticalAlignment="Top" RenderTransformOrigin="-0.269,1.632" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" Height="45" Width="90">
-                <Grid x:Name="SbProducts" Background="#FF373834" Margin="-12,-10,11,-4">
-
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="TabSettings" Header="Settings" Margin="82,0,-82,0"  RenderTransformOrigin="-0.04,-2.662" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" Height="45" Width="90">
-                <Grid x:Name="SbSettings" Background="#FF373834" Margin="-9,-9,-1,-4" Height="372" VerticalAlignment="Bottom">
+                <Grid x:Name="SbPromos_Copy" Background="#FF6C6C6C" Margin="-14,0,13,-15" Height="374" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <ScrollViewer HorizontalAlignment="Left" Height="364" Margin="10,0,0,0" VerticalAlignment="Top" Width="935">
+                        <Image x:Name="gameCover_Copy" Source="Metro Last Light.jpg" Stretch="Fill" Height="227" Width="366"/>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabProducts" Header="Products" Margin="-193,0,193,0"  VerticalAlignment="Top" RenderTransformOrigin="-0.269,1.632" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" Height="45" Width="90">
+                <Grid x:Name="SbProducts" Background="#FF6C6C6C" Margin="-12,0,11,-4">
+                    <Image x:Name="gameOneCover" Margin="130,14,612,251" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameOneTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="189,124,0,0" VerticalAlignment="Top" Height="31" Width="89" Foreground="#FF93B56B"/>
+                    <Image x:Name="gameTwoCover" Margin="390,14,352,251" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameTwoTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="449,124,0,0" VerticalAlignment="Top" Height="31" Width="89" Foreground="#FF93B56B"/>
+                    <Image x:Name="gameThreeCover" Margin="661,14,81,251" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameThreeTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="721,124,0,0" VerticalAlignment="Top" Height="31" Width="88" Foreground="#FF93B56B"/>
+                    <Image x:Name="gameFourCover" Margin="130,168,612,97" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameFourTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="189,278,0,0" VerticalAlignment="Top" Height="31" Width="89" Foreground="#FF93B56B"/>
+                    <Image x:Name="gameFivecover" Margin="390,168,352,97" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameFiveTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="449,278,0,0" VerticalAlignment="Top" Height="31" Width="89" Foreground="#FF93B56B"/>
+                    <Image x:Name="gameSixCover" Margin="661,168,81,97" Source="Metro Last Light.jpg" Stretch="Fill"/>
+                    <Label x:Name="gameSixTitle"  Content="Metro Last Light" HorizontalAlignment="Left" Margin="721,278,0,0" VerticalAlignment="Top" Height="31" Width="88" Foreground="#FF93B56B"/>
+                    <Button x:Name="nextBtn" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="528,337,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="prevButton" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="390,337,0,0" VerticalAlignment="Top" Width="75"/>
 
                 </Grid>
             </TabItem>
+
         </TabControl>
         <TextBox x:Name="TxSearch" HorizontalAlignment="Left" Height="26" Margin="704,80,0,0" TextWrapping="Wrap" Text="Search the store" VerticalAlignment="Top" Width="160" TextChanged="TextBox_TextChanged_1" Foreground="#FF93B56B">
             <TextBox.Background>
@@ -58,6 +65,7 @@
                 <SolidColorBrush Color="#FFF4F4F5" Opacity="0.3"/>
             </Rectangle.Fill>
         </Rectangle>
-        
+        <Rectangle x:Name="blocktangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="530" Margin="767,412,-766,-423" Stroke="Black" VerticalAlignment="Top" Width="959" Opacity="0.5"/>
+
     </Grid>
 </Window>
