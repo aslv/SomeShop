@@ -12,6 +12,11 @@ namespace OnlineStoreService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        private Model1Container provider;
+        Service1()
+        {
+            provider = new Model1Container();
+        }
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -33,7 +38,6 @@ namespace OnlineStoreService
 
         public bool Login(string name, string password)
         {
-            Model1Container provider = new Model1Container();
                         //Example of using LINQ to access the model.
 
             var names = from d in provider.AccountsSet 
@@ -56,7 +60,9 @@ namespace OnlineStoreService
 
         public Product[] GetProductList()
         {
-            throw new NotImplementedException();
+            var products = from d in provider.ProductsSet
+                           select d;
+            return null;
         }
 
         public Product[] GetSearchedProductsList(string data)
