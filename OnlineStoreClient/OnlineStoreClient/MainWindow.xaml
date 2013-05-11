@@ -65,7 +65,7 @@
                 <SolidColorBrush Color="#FFF4F4F5" Opacity="0.3"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="blocktangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="530" Margin="767,412,-766,-423" Stroke="Black" VerticalAlignment="Top" Width="959" Opacity="0.5"/>
+        <Rectangle x:Name="blocktangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="530" Margin="-19,0,0,-11" Stroke="Black" VerticalAlignment="Top" Width="959" Opacity="0.5"/>
 
     </Grid>
 </Window>

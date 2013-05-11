@@ -5,170 +5,170 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="AccountsSet" EntityType="Model1.Store.AccountsSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PaymentDetailsSet" EntityType="Model1.Store.PaymentDetailsSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ProductsSet" EntityType="Model1.Store.ProductsSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Promos" EntityType="Model1.Store.Promos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PurchasesSet" EntityType="Model1.Store.PurchasesSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="Model1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_AccountsSet_PaymentDetailsSet" Association="Model1.Store.FK_AccountsSet_PaymentDetailsSet">
-      <End Role="PaymentDetailsSet" EntitySet="PaymentDetailsSet" />
-      <End Role="AccountsSet" EntitySet="AccountsSet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Promos_AccountsSet1" Association="Model1.Store.FK_Promos_AccountsSet1">
-      <End Role="AccountsSet" EntitySet="AccountsSet" />
-      <End Role="Promos" EntitySet="Promos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PurchasesSet_AccountsSet" Association="Model1.Store.FK_PurchasesSet_AccountsSet">
-      <End Role="AccountsSet" EntitySet="AccountsSet" />
-      <End Role="PurchasesSet" EntitySet="PurchasesSet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Promos_ProductsSet1" Association="Model1.Store.FK_Promos_ProductsSet1">
-      <End Role="ProductsSet" EntitySet="ProductsSet" />
-      <End Role="Promos" EntitySet="Promos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PurchasesSet_PurchasesSet" Association="Model1.Store.FK_PurchasesSet_PurchasesSet">
-      <End Role="ProductsSet" EntitySet="ProductsSet" />
-      <End Role="PurchasesSet" EntitySet="PurchasesSet" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="AccountsSet">
-    <Key>
-      <PropertyRef Name="Username" />
-    </Key>
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="bit" Nullable="false" />
-    <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
-    <Property Name="Gender" Type="bit" Nullable="false" />
-    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FirstNameAcc" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastNameAcc" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Role" Type="bit" Nullable="true" />
-    <Property Name="AccBalance" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-  </EntityType>
-  <EntityType Name="PaymentDetailsSet">
-    <Key>
-      <PropertyRef Name="Username" />
-    </Key>
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="District" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Town" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PostalCode" Type="smallint" Nullable="false" />
-    <Property Name="PayingAddress" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CardNumber" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DateOfExpire" Type="datetime" Nullable="false" />
-    <Property Name="SecurityCode" Type="smallint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProductsSet">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Genre" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Cover" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ReleaseDate" Type="datetime" Nullable="true" />
-    <Property Name="Producer" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Score" Type="smallint" Nullable="true" />
-    <Property Name="Price" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-  </EntityType>
-  <EntityType Name="Promos">
-    <Key>
-      <PropertyRef Name="Username" />
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Discount" Type="smallint" Nullable="false" />
-    <Property Name="BeginDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PurchasesSet">
-    <Key>
-      <PropertyRef Name="Username" />
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="DateOfPurchase" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" Nullable="true" />
-    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
-  </EntityType>
-  <Association Name="FK_AccountsSet_PaymentDetailsSet">
-    <End Role="PaymentDetailsSet" Type="Model1.Store.PaymentDetailsSet" Multiplicity="1" />
-    <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="PaymentDetailsSet">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="AccountsSet">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Promos_AccountsSet1">
-    <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="1" />
-    <End Role="Promos" Type="Model1.Store.Promos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AccountsSet">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="Promos">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PurchasesSet_AccountsSet">
-    <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="1" />
-    <End Role="PurchasesSet" Type="Model1.Store.PurchasesSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AccountsSet">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="PurchasesSet">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Promos_ProductsSet1">
-    <End Role="ProductsSet" Type="Model1.Store.ProductsSet" Multiplicity="1" />
-    <End Role="Promos" Type="Model1.Store.Promos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductsSet">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Promos">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PurchasesSet_PurchasesSet">
-    <End Role="ProductsSet" Type="Model1.Store.ProductsSet" Multiplicity="1" />
-    <End Role="PurchasesSet" Type="Model1.Store.PurchasesSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductsSet">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="PurchasesSet">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="AccountsSet" EntityType="Model1.Store.AccountsSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentDetailsSet" EntityType="Model1.Store.PaymentDetailsSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductsSet" EntityType="Model1.Store.ProductsSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Promos" EntityType="Model1.Store.Promos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PurchasesSet" EntityType="Model1.Store.PurchasesSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Model1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AccountsSet_PaymentDetailsSet" Association="Model1.Store.FK_AccountsSet_PaymentDetailsSet">
+            <End Role="PaymentDetailsSet" EntitySet="PaymentDetailsSet" />
+            <End Role="AccountsSet" EntitySet="AccountsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Promos_AccountsSet1" Association="Model1.Store.FK_Promos_AccountsSet1">
+            <End Role="AccountsSet" EntitySet="AccountsSet" />
+            <End Role="Promos" EntitySet="Promos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Promos_ProductsSet1" Association="Model1.Store.FK_Promos_ProductsSet1">
+            <End Role="ProductsSet" EntitySet="ProductsSet" />
+            <End Role="Promos" EntitySet="Promos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasesSet_AccountsSet" Association="Model1.Store.FK_PurchasesSet_AccountsSet">
+            <End Role="AccountsSet" EntitySet="AccountsSet" />
+            <End Role="PurchasesSet" EntitySet="PurchasesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasesSet_PurchasesSet" Association="Model1.Store.FK_PurchasesSet_PurchasesSet">
+            <End Role="ProductsSet" EntitySet="ProductsSet" />
+            <End Role="PurchasesSet" EntitySet="PurchasesSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccountsSet">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="bit" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstNameAcc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastNameAcc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Role" Type="bit" />
+          <Property Name="AccBalance" Type="decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="PaymentDetailsSet">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="District" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Town" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostalCode" Type="smallint" Nullable="false" />
+          <Property Name="PayingAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CardNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfExpire" Type="datetime" Nullable="false" />
+          <Property Name="SecurityCode" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductsSet">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Genre" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Cover" Type="nvarchar(max)" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="Producer" Type="nvarchar(max)" />
+          <Property Name="Score" Type="smallint" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Promos">
+          <Key>
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Discount" Type="smallint" Nullable="false" />
+          <Property Name="BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchasesSet">
+          <Key>
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfPurchase" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AccountsSet_PaymentDetailsSet">
+          <End Role="PaymentDetailsSet" Type="Model1.Store.PaymentDetailsSet" Multiplicity="1" />
+          <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentDetailsSet">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="AccountsSet">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Promos_AccountsSet1">
+          <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="1" />
+          <End Role="Promos" Type="Model1.Store.Promos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountsSet">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Promos">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Promos_ProductsSet1">
+          <End Role="ProductsSet" Type="Model1.Store.ProductsSet" Multiplicity="1" />
+          <End Role="Promos" Type="Model1.Store.Promos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSet">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Promos">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasesSet_AccountsSet">
+          <End Role="AccountsSet" Type="Model1.Store.AccountsSet" Multiplicity="1" />
+          <End Role="PurchasesSet" Type="Model1.Store.PurchasesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountsSet">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="PurchasesSet">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasesSet_PurchasesSet">
+          <End Role="ProductsSet" Type="Model1.Store.ProductsSet" Multiplicity="1" />
+          <End Role="PurchasesSet" Type="Model1.Store.PurchasesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSet">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PurchasesSet">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -248,7 +248,7 @@
           <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Type" Nullable="false" />
-          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="3" />
           <Property Type="Boolean" Name="Gender" Nullable="false" />
           <Property Type="String" Name="email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FirstNameAcc" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -300,8 +300,8 @@
           <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ProductID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="Discount" Nullable="false" />
-          <Property Type="DateTime" Name="BeginDate" Nullable="false" Precision="0" />
-          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="BeginDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
           <NavigationProperty Name="AccountsSet" Relationship="Model1.FK_Promos_AccountsSet1" FromRole="Promos" ToRole="AccountsSet" />
           <NavigationProperty Name="ProductsSet" Relationship="Model1.FK_Promos_ProductsSet1" FromRole="Promos" ToRole="ProductsSet" />
         </EntityType>

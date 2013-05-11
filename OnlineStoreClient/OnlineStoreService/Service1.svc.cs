@@ -40,12 +40,12 @@ namespace OnlineStoreService
         {
                         //Example of using LINQ to access the model.
 
-         /*   var names = from d in provider.AccountsSet 
+            var names = from d in provider.AccountsSet 
                         where d.Username==name && d.Password==password
-                        select d.Username;*/
+                        select d.Username;
 
 
-            if (/*names.Contains(name)||*/ ("test".Equals(name) && "test".Equals(password)))
+            if (names.Contains(name))
             {
                 return true;
             }
