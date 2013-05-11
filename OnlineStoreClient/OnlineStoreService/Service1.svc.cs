@@ -69,7 +69,12 @@ namespace OnlineStoreService
 
         public Product[] GetSearchedProductsList(string data)
         {
-            throw new NotImplementedException();
+            var products = from d in provider.ProductsSet
+                           where d.ProductName.Contains(data)
+                           select d;
+            Product[] result = new Product[products.ToList().Count];
+            result = ConvertProductSetToProduct(products.ToList());
+            return result;
         }
 
         public Product[] GetTopTenProductsList()
@@ -79,7 +84,12 @@ namespace OnlineStoreService
 
         public Product[] GetPromoProductsList()
         {
-            throw new NotImplementedException();
+            var products = from d in provider.ProductsSet
+                           join x in provider.Promos on d.ProductID equals x.ProductID
+                           select d;
+            Product[] result = new Product[products.ToList().Count];
+            result = ConvertProductSetToProduct(products.ToList());
+            return result;
         }
 
         public void addProduct(string productID, string name, string genre, string description, string cover, DateTime releaseDate, string producer, int score, decimal price)
