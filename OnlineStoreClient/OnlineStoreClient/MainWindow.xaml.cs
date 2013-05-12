@@ -169,7 +169,7 @@ namespace OnlineStoreClient
                 canvas.Children.Add(gameNames[i]);
                 currentX += 231;
                 currentXName += 231;
-                if (((i==2||i==5||i==8) && horizontalBig == false) || (horizontalBig && (i==5||i==11||i==17)))
+                if (((i==2||i==5||i==8) && horizontalBig == false) || (horizontalBig && (i==4||i==9||i==14)))
                 {
                     currentY += 150;
                     currentYName += 150;
@@ -183,13 +183,26 @@ namespace OnlineStoreClient
                     nextBtn.IsEnabled = true;
                     prevButton.IsEnabled = true;
                 }
-                if (horizontalBig || verticalBig)
+                if (verticalBig && horizontalBig)
                 {
                     nextBtn.IsEnabled = false;
                     prevButton.IsEnabled = false;
-                    if (i == 11)
+                    if (i == 14)
                     {
-
+                        break;
+                    }
+                }
+                else if (horizontalBig )
+                {
+                   if (i == 11)
+                    {
+                        break;
+                    }
+                }
+                else if (verticalBig)
+                {
+                    if (i == 8)
+                    {
                         break;
                     }
                 }
@@ -197,7 +210,6 @@ namespace OnlineStoreClient
                 {
                     if (i == 5)
                     {
-
                         break;
                     }
                 }
@@ -267,23 +279,23 @@ namespace OnlineStoreClient
 
         private void Window_SizeChanged_1(object sender, SizeChangedEventArgs e)
         {
-            if (this.Width > 1600)
+            if (this.Width > 1100)
             {
                 horizontalBig = true;
                 updatePoductPage();
             }
 
-            if (this.Height > 800)
+            if (this.Height >600)
             {
                 verticalBig = true;
                 updatePoductPage();
             }
-            if (this.Height < 800)
+            if (this.Height < 600)
             {
                 verticalBig = false;
                 updatePoductPage();
             }
-            if (this.Width < 1200)
+            if (this.Width < 1000)
             {
                 horizontalBig = false;
                 updatePoductPage();

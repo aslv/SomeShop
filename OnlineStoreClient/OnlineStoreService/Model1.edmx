@@ -40,13 +40,13 @@
           <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Type" Type="bit" Nullable="false" />
-          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="FirstNameAcc" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LastNameAcc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AccBalance" Type="money" />
           <Property Name="Role" Type="bit" />
-          <Property Name="AccBalance" Type="decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="PaymentDetailsSet">
           <Key>
@@ -76,7 +76,7 @@
           <Property Name="ReleaseDate" Type="datetime" />
           <Property Name="Producer" Type="nvarchar(max)" />
           <Property Name="Score" Type="smallint" />
-          <Property Name="Price" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Price" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Promos">
           <Key>
@@ -86,8 +86,8 @@
           <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Discount" Type="smallint" Nullable="false" />
-          <Property Name="BeginDate" Type="datetime" Nullable="false" />
-          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="BeginDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="PurchasesSet">
           <Key>
@@ -248,7 +248,7 @@
           <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Type" Nullable="false" />
-          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="0" />
           <Property Type="Boolean" Name="Gender" Nullable="false" />
           <Property Type="String" Name="email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FirstNameAcc" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -300,8 +300,8 @@
           <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ProductID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="Discount" Nullable="false" />
-          <Property Type="DateTime" Name="BeginDate" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="BeginDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="0" />
           <NavigationProperty Name="AccountsSet" Relationship="Model1.FK_Promos_AccountsSet1" FromRole="Promos" ToRole="AccountsSet" />
           <NavigationProperty Name="ProductsSet" Relationship="Model1.FK_Promos_ProductsSet1" FromRole="Promos" ToRole="ProductsSet" />
         </EntityType>
