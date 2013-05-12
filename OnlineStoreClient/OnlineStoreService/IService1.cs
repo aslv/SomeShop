@@ -101,7 +101,7 @@ namespace OnlineStoreService
         /// </summary>
         /// <returns>true if succesful, false if not</returns>
         [OperationContract]
-        bool registerUser(string username, string password, bool type, DateTime dateOfBirth, bool gender, string email,string firstName, string lastName, bool role, double accBalance );
+        bool registerUser(string username, string password, bool type, DateTime dateOfBirth, bool gender, string email,string firstName, string lastName, bool role, decimal accBalance );
 
     }
 

@@ -35,16 +35,35 @@ namespace OnlineStoreService
             return composite;
         }
 
-        public bool registerUser(string username, string password, bool type, DateTime dateOfBirth, bool gender, string email, string firstName, string lastName, bool role, double accBalance)
+        public bool registerUser(string username, string password, bool type, DateTime dateOfBirth, bool gender, string email, string firstName, string lastName, bool role, decimal accBalance)
         {
-            return false;
+            AccountsSet account = new AccountsSet();
+            var products = from d in provider.AccountsSet
+                           where d.Username == username
+                           select d.Username;
+            if (products.Contains(username))
+            {
+                return false;
+            }
+            account.Username = username;
+            account.Password = password;
+            account.Type = type;
+            account.DateOfBirth = dateOfBirth;
+            account.Gender = gender;
+            account.email = email;
+            account.FirstNameAcc = firstName;
+            account.LastNameAcc = lastName;
+            account.Role = role;
+            account.AccBalance = accBalance;
+            provider.AccountsSet.AddObject(account);
+            return true;
         }
         public bool Login(string name, string password)
         {
-                        //Example of using LINQ to access the model.
+            //Example of using LINQ to access the model.
 
-            var names = from d in provider.AccountsSet 
-                        where d.Username==name && d.Password==password
+            var names = from d in provider.AccountsSet
+                        where d.Username == name && d.Password == password
                         select d.Username;
 
 
@@ -133,6 +152,6 @@ namespace OnlineStoreService
         }
 
 
-       
+
     }
 }
