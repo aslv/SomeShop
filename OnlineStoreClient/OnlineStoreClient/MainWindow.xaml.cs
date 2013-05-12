@@ -286,12 +286,12 @@ namespace OnlineStoreClient
                 updatePoductPage();
             }
 
-            if (this.Height >600)
+            if (this.Height >700)
             {
                 verticalBig = true;
                 updatePoductPage();
             }
-            if (this.Height < 600)
+            if (this.Height < 700)
             {
                 verticalBig = false;
                 updatePoductPage();
@@ -401,6 +401,24 @@ namespace OnlineStoreClient
         private void collapseButton_MouseLeave(object sender, MouseEventArgs e)
         {
             collapseButton.Effect = null;
+        }
+
+        private void TxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                productList = _provider.GetSearchedProductsList(searchBox.Text);
+                searchBox.Text = "";
+                updatePoductPage();
+                TabProducts.IsSelected = true;
+                
+            }
+        }
+
+        private void TabProducts_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            productList = _provider.GetProductList();
+            updatePoductPage();
         }
 
 

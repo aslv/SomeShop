@@ -39,7 +39,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="TabTop10" Header="Top10" Margin="141,0,-141,0" RenderTransformOrigin="0.535,-1.5" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" HorizontalAlignment="Left" Width="90"  Height="45" BorderThickness="0"/>
-                <TabItem x:Name="TabProducts" Header="Products" Margin="-193,0,193,0"  VerticalAlignment="Top" RenderTransformOrigin="-0.269,1.632" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" Height="45" Width="90" MouseDown="TabProducts_MouseDown">
+                <TabItem x:Name="TabProducts" Header="Products" Margin="-193,0,193,0"  VerticalAlignment="Top" RenderTransformOrigin="-0.269,1.632" Foreground="#FF93B56B" Background="#FF373834" BorderBrush="Black" Height="45" Width="90" MouseDown="TabProducts_MouseDown" MouseUp="TabProducts_MouseUp">
                     <Grid x:Name="SbProducts" Margin="-12,0,-5,-4">
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -87,7 +87,7 @@
 
 
             </TabControl>
-            <TextBox x:Name="TxSearch" HorizontalAlignment="Right" Height="26" Margin="704,80,50,0" TextWrapping="Wrap" Text="Search the store" VerticalAlignment="Top" Width="160" TextChanged="TextBox_TextChanged_1" Foreground="#FF93B56B">
+            <TextBox x:Name="searchBox" HorizontalAlignment="Right" Height="26" Margin="704,80,50,0" TextWrapping="Wrap" Text="Search the store" VerticalAlignment="Top" Width="160" TextChanged="TextBox_TextChanged_1" Foreground="#FF93B56B" KeyDown="TxSearch_KeyDown">
                 <TextBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
