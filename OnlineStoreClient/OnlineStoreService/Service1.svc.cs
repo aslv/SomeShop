@@ -85,7 +85,9 @@ namespace OnlineStoreService
             var products = from d in provider.ProductsSet
                            select d;
             Product[] result = new Product[products.ToList().Count];
-            result = ConvertProductSetToProduct(products.ToList());
+            List<ProductsSet> productList = products.ToList();
+            productList = SetPromotionalPrices(productList);
+            result = ConvertProductSetToProduct(productList);
             return result;
         }
 
@@ -95,7 +97,9 @@ namespace OnlineStoreService
                            where d.ProductName.Contains(data)
                            select d;
             Product[] result = new Product[products.ToList().Count];
-            result = ConvertProductSetToProduct(products.ToList());
+            List<ProductsSet> productList = products.ToList();
+            productList = SetPromotionalPrices(productList);
+            result = ConvertProductSetToProduct(productList);
             return result;
         }
 
@@ -110,7 +114,9 @@ namespace OnlineStoreService
                            join x in provider.Promos on d.ProductID equals x.ProductID
                            select d;
             Product[] result = new Product[products.ToList().Count];
-            result = ConvertProductSetToProduct(products.ToList());
+            List<ProductsSet> productList = products.ToList();
+            productList = SetPromotionalPrices(productList);
+            result = ConvertProductSetToProduct(productList);
             return result;
         }
 
@@ -148,6 +154,26 @@ namespace OnlineStoreService
                 result[i].Price = source[i].Price;
             }
 
+            return result;
+        }
+        private List<ProductsSet> SetPromotionalPrices(List<ProductsSet> productList)
+        {
+            List<ProductsSet> result = productList;
+
+            var promotions = from d in provider.ProductsSet
+                           join x in provider.Promos on d.ProductID equals x.ProductID
+                           select d;
+            List<ProductsSet> promotionsList = promotions.ToList();
+
+            var discounts = from d in provider.Promos
+                            select d.Discount;
+            List<short> discountsList = discounts.ToList();
+            int index=0;
+            for (int i = 0; i < promotionsList.Count; i++)
+            {
+                index = result.IndexOf(promotionsList[i]);
+                result[index].Price = result[index].Price * discountsList[i] / 100;
+            }
             return result;
         }
 
