@@ -16,20 +16,20 @@
             <ImageBrush ImageSource="img/loginControlBack.png"/>
         </Grid.Background>
         <Label x:Name="txFistName" Content="User Name *" Margin="49,23,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="28" Margin="49,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="28" Margin="49,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
         <Login:CancelButton x:Name="CancelBtn" Content="CancelButton" HorizontalAlignment="Left" Height="27" Margin="227,248,0,0" VerticalAlignment="Top" Width="68" Click="CancelBtn_Click">
             <Login:CancelButton.Background>
                 <ImageBrush ImageSource="img/CancelButton.png"/>
             </Login:CancelButton.Background>
         </Login:CancelButton>
-        <Login:RegisterBtn x:Name="RegisterBtn" HorizontalAlignment="Left" Height="29" Margin="49,248,0,0" VerticalAlignment="Top" Width="68">
+        <Login:RegisterBtn x:Name="RegisterBtn" HorizontalAlignment="Left" Height="29" Margin="49,248,0,0" VerticalAlignment="Top" Width="68" Click="RegisterBtn_Click">
             <Login:RegisterBtn.Background>
                 <ImageBrush ImageSource="img/RegisterButton.png"/>
             </Login:RegisterBtn.Background>
         </Login:RegisterBtn>
         <Label x:Name="txFistName_Copy" Content="Password *" Margin="49,91,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-        <TextBox x:Name="tbFirstName_Copy" HorizontalAlignment="Left" Height="28" Margin="49,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
         <Label x:Name="txFistName_Copy1" Content="Confirm Password *" Margin="49,164,0,0" Foreground="#FF93B56B" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,5,5,5" Width="149" Height="28"/>
-        <TextBox x:Name="tbFirstName_Copy1" HorizontalAlignment="Left" Height="28" Margin="49,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <PasswordBox x:Name="pass" HorizontalAlignment="Left" Margin="49,124,0,0" VerticalAlignment="Top" Height="35" Width="246"/>
+        <PasswordBox x:Name="passRepeat" HorizontalAlignment="Left" Margin="49,192,0,0" VerticalAlignment="Top" Height="31" Width="246"/>
     </Grid>
 </UserControl>

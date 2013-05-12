@@ -35,7 +35,10 @@ namespace OnlineStoreService
             return composite;
         }
 
-
+        public bool registerUser(string username, string password, bool type, DateTime dateOfBirth, bool gender, string email, string firstName, string lastName, bool role, double accBalance)
+        {
+            return false;
+        }
         public bool Login(string name, string password)
         {
                         //Example of using LINQ to access the model.
@@ -128,5 +131,8 @@ namespace OnlineStoreService
 
             return result;
         }
+
+
+       
     }
 }

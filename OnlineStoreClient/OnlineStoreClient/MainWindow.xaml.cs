@@ -41,6 +41,7 @@ namespace OnlineStoreClient
             InitializeComponent();
             productList = _provider.GetProductList();
             productPromoList = _provider.GetPromoProductsList();
+
             canvas = new Canvas();
             loginForm = new Login.LoginFrm(this);
             messageGrid.Children.Add(loginForm);
