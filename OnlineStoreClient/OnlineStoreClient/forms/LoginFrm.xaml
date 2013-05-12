@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="400" Height="250">
     <Grid HorizontalAlignment="Right" Width="400" Initialized="Grid_Initialized_1">
+        <Grid.OpacityMask>
+            <ImageBrush ImageSource="img/loginControlBackOpacity.png"/>
+        </Grid.OpacityMask>
         <Grid.Background>
             <ImageBrush ImageSource="img/loginControlBack.png"/>
         </Grid.Background>

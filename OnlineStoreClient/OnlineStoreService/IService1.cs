@@ -131,7 +131,6 @@ namespace OnlineStoreService
         private string cover;
         private string producer;
         private decimal price;
-
         [DataMember]
         public string ID
         {

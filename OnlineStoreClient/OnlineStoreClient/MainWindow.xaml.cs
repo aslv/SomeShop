@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using OnlineStoreClient.forms;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Effects;
 namespace OnlineStoreClient
 {
     /// <summary>
@@ -25,29 +28,28 @@ namespace OnlineStoreClient
         Login.LoginFrm loginForm;
         private int iterator = 0;
         private int productIterator = 0;
-        private OnlineStoreClient.ServiceReference1.Product[] productList;
+        public OnlineStoreClient.ServiceReference1.Product[] productList;
+        public OnlineStoreClient.ServiceReference1.Product[] productPromoList;
         private Canvas canvas;
         private bool horizontalBig = false;
         private bool verticalBig = false;
-        private double originalWidth = 0;
+        public double totalPrice = 0;
+        private bool fullscreen = false;
+        Image[] gameCovers;
         public MainWindow()
         {
             InitializeComponent();
-            productList = _provider.GetPromoProductsList();
+            productList = _provider.GetProductList();
+            productPromoList = _provider.GetPromoProductsList();
             canvas = new Canvas();
             loginForm = new Login.LoginFrm(this);
-            workArea.Children.Add(loginForm);
+            messageGrid.Children.Add(loginForm);
+
+
             
         }
 
-        private void logIn_Click(object sender, RoutedEventArgs e)
-        {
-           /* bool logged = _provider.login(nickName.Text, password.Text);
-            if (logged == true)
-            {
-                loginFrm.Visibility = Visibility.Collapsed;
-            }*/
-        }
+
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
@@ -61,12 +63,16 @@ namespace OnlineStoreClient
 
         private void TabPromos_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                productPromoList = _provider.GetPromoProductsList();
+                updatePromoPage();
+            }
         }
 
         private void nextBtn_Copy_Click(object sender, RoutedEventArgs e)
         {
-            if (iterator < productList.Length-1)
+            if (iterator < productPromoList.Length-1)
             {
                 iterator++;
                 nextPromoPage();
@@ -112,19 +118,21 @@ namespace OnlineStoreClient
         }
         private void updatePromoPage()
         {
-            Uri uri = new Uri(productList[iterator].Cover);
+            Uri uri = new Uri(productPromoList[iterator].Cover);
             ImageSource imgSource = new BitmapImage(uri);
-            Uri uriBg = new Uri(productList[iterator].Producer);
+            Uri uriBg = new Uri(productPromoList[iterator].Producer);
             ImageSource imgSourceBg = new BitmapImage(uriBg);
             ImageBrush textureBrush = new ImageBrush(imgSourceBg);
             this.SbPromos.Background = textureBrush;
             this.gameCover.Source = imgSource;
-            this.gameTitle.Content = productList[iterator].ID;
-            this.gameDescription.Text = productList[iterator].Description;
+            this.gameTitle.Content = productPromoList[iterator].ID;
+            this.gameDescription.Text = productPromoList[iterator].Description;
+            this.gameGenre.Content = "Genre: " + productPromoList[iterator].Genre;
+            this.gamePrice.Content = "Price: " + productPromoList[iterator].Price;
         }
         private void updatePoductPage()
         {
-            Image[] gameCovers = new Image[productList.Length];
+            gameCovers = new Image[productList.Length];
             Label[] gameNames = new Label[productList.Length];
             int currentX = 130;
             int currentY = 14;
@@ -136,7 +144,6 @@ namespace OnlineStoreClient
             }
             canvas = new Canvas();
             for (int i=0;i<productList.Length-productIterator;i++){
-
                 Uri uri = new Uri(productList[i+productIterator].Cover);
                 ImageSource imgSource = new BitmapImage(uri);
 
@@ -144,7 +151,7 @@ namespace OnlineStoreClient
                 gameCovers[i].Source = imgSource;
                 gameCovers[i].Width = 211;
                 gameCovers[i].Height = 113;
-
+                gameCovers[i].MouseDown += product_click;
  
                 Canvas.SetTop(gameCovers[i], currentY);
                 Canvas.SetLeft(gameCovers[i], currentX);
@@ -154,7 +161,9 @@ namespace OnlineStoreClient
 
                 gameNames[i] = new Label();
                 gameNames[i].Content = productList[i+productIterator].ID;
- 
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Color.FromArgb(100, 255, 255, 255);
+                gameNames[i].Foreground = brush;
                 Canvas.SetTop(gameNames[i], currentYName);
                 Canvas.SetLeft(gameNames[i], currentXName);
                 canvas.Children.Add(gameNames[i]);
@@ -193,21 +202,49 @@ namespace OnlineStoreClient
                     }
                 }
                 
+                
             }
 
             SbProducts.Children.Add(canvas);
         }
+        public void product_click(object sender, MouseButtonEventArgs e)
+        {
+            int iterator = 0;
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                foreach (Image gameImage in gameCovers)
+                {
 
+                    if (sender == gameImage)
+                    {
+                        GameInfo gameInfoWindow = new GameInfo(productList[iterator + productIterator]);
+                        this.messageGrid.Children.Add(gameInfoWindow);
+                        DoubleAnimation da = new DoubleAnimation();
+                        da.From = 0;
+                        da.To = 1;
+                        da.Duration = new Duration(TimeSpan.FromMilliseconds(400));
+
+
+
+                        gameInfoWindow.BeginAnimation(OpacityProperty, da);
+                    }
+                    iterator++;
+                }
+            }
+        }
         private void workArea_Loaded(object sender, RoutedEventArgs e)
         {
            
             updatePromoPage();
-           // updatePoductPage();
         }
 
         private void TabProducts_MouseDown(object sender, MouseButtonEventArgs e)
         {
-   
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                productList = _provider.GetProductList();
+                updatePoductPage();
+            }
         }
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
@@ -253,18 +290,107 @@ namespace OnlineStoreClient
             }
         }
 
-        private void TabPromos_MouseUp(object sender, MouseButtonEventArgs e)
+   
+        private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-            productList = _provider.GetPromoProductsList();
-            updatePromoPage();
+            cartNames.Text = "";
+            cartPrices.Text = "";
+            cartPrice.Content = "Total: ";
         }
 
-        private void TabProducts_MouseUp(object sender, MouseButtonEventArgs e)
+        private void cartTab_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
-            productList = _provider.GetProductList();
-            updatePoductPage();
+            cartAlert.Opacity = 0;
         }
+
+
+
+
+        private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+  
+                this.DragMove();
+            }
+        }
+
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.Close();
+        }
+
+        private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                if (!fullscreen)
+                {
+                    //this.border.Opacity = 0;
+                    this.WindowState = WindowState.Maximized;
+                    fullscreen = true;
+                }
+                else
+                {
+                 //   this.border.Opacity = 100;
+                    this.WindowState = WindowState.Normal;
+                    fullscreen = false;
+                }
+            }
+        }
+
+        private void Image_MouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Image_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            DropShadowEffect effect = new DropShadowEffect();
+            effect.BlurRadius = 5;
+            effect.ShadowDepth = 0;
+            effect.Color = Color.FromArgb(100, 255, 255, 255);
+            effect.Opacity = 1;
+            closeWindowButton.Effect = effect;
+        }
+
+        private void closeWindowButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            closeWindowButton.Effect = null;
+        }
+
+        private void maximizeButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DropShadowEffect effect = new DropShadowEffect();
+            effect.BlurRadius = 5;
+            effect.ShadowDepth = 0;
+            effect.Color = Color.FromArgb(100, 255, 255, 255);
+            effect.Opacity = 1;
+            maximizeButton.Effect = effect;
+        }
+
+        private void maximizeButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            maximizeButton.Effect = null;
+        }
+
+        private void Image_MouseEnter_2(object sender, MouseEventArgs e)
+        {
+            DropShadowEffect effect = new DropShadowEffect();
+            effect.BlurRadius = 5;
+            effect.ShadowDepth = 0;
+            effect.Color = Color.FromArgb(100, 255, 255, 255);
+            effect.Opacity = 1;
+           collapseButton.Effect = effect;
+        }
+
+        private void collapseButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            collapseButton.Effect = null;
+        }
+
+
 
 
     }

@@ -26,5 +26,11 @@ namespace OnlineStoreClient.forms
             InitializeComponent();
             this.parent = parent;
         }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Visibility = Visibility.Visible;
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }

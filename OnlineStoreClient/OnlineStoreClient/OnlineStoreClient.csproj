@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="forms\CancelButton.cs" />
+    <Compile Include="forms\GameInfo.xaml.cs">
+      <DependentUpon>GameInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms\RegisterBtn.cs" />
     <Compile Include="forms\LoginBtn.cs">
       <SubType>Code</SubType>
@@ -73,6 +76,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="forms\GameInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="forms\LoginFrm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,45 +180,6 @@
     <Resource Include="forms\img\signInButtonDown.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Dishonored.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Antichamber.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Bioshock Infinite.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Counter-Strike Global Offensive.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Defiance.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="FINAL FANTASY® XI Ultimate Collection.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="God Mode.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="The Elder Scrolls V Skyrim.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Microsoft Studios.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Torchlight II.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="TWarframe.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Metro Last Light.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ORION Dino Horde.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -232,6 +200,27 @@
       <ProductName>SQL Server Compact 4.0 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\loginControlBackOpacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\btn_addtocart_repeat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\closeWindowButton.png" />
+    <Resource Include="forms\img\collapseWindowButton.png" />
+    <Resource Include="forms\img\fullWindowButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="forms\img\border_bottom.png" />
+    <Resource Include="forms\img\border_left.png" />
+    <Resource Include="forms\img\border_right.png" />
+    <Resource Include="forms\img\border_top.png" />
+    <Resource Include="forms\img\border_top_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

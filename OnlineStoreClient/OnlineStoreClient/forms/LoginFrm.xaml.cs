@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using OnlineStoreClient;
 using System.IO;
 using OnlineStoreClient.forms;
+using System.Windows.Media.Effects;
 namespace Login
 {
     /// <summary>
@@ -27,6 +28,10 @@ namespace Login
         {
             InitializeComponent();
             this.parent = parent;
+            BlurEffect effect = new BlurEffect();
+            effect.Radius = 10;
+            parent.contentGrid.IsEnabled = false;
+            parent.contentGrid.Effect = effect;
         }
 
         private void lbReg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -46,9 +51,8 @@ namespace Login
                     file.WriteLine(tbUsername.Text + " " + pwPass.Password + "\n");
                     file.Close();
                 }
-                parent.blocktangle.Opacity = 100;
-                parent.blocktangle.Width = 0;
-                parent.blocktangle.Height = 0;
+                parent.contentGrid.Effect = null;
+                parent.contentGrid.IsEnabled = true;
                 this.Visibility = Visibility.Collapsed;
             }
             else
@@ -82,13 +86,15 @@ namespace Login
                     tbUsername.Text = info[0];
                     pwPass.Password = info[1];
             }
+           
+            
         }
 
         private void txtRegister_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
             Register_form registerFrm = new Register_form(this);
-            parent.workArea.Children.Add(registerFrm);
+            parent.messageGrid.Children.Add(registerFrm);
         }
 
     
