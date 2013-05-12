@@ -36,8 +36,9 @@ namespace OnlineStoreClient.forms
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
              ServiceReference1.Service1Client _provider = new ServiceReference1.Service1Client();
-             _provider.registerUser(userName.Text, pass.Password, false, DateTime.Now, true, "ähmed@dogan.com", "ähmed", "dogan",true,2.0);
-
+             bool result = _provider.registerUser(userName.Text, pass.Password, false, DateTime.Now, true, "ähmed@dogan.com", "ähmed", "dogan",true,2.0);
+             parent.Visibility = Visibility.Visible;
+             this.Visibility = Visibility.Collapsed;
         }
     }
 }
