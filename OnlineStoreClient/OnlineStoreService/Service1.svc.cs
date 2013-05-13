@@ -112,6 +112,7 @@ namespace OnlineStoreService
         {
             var products = from d in provider.ProductsSet
                            join x in provider.Promos on d.ProductID equals x.ProductID
+                           where x.BeginDate < DateTime.Now && x.EndDate > DateTime.Now
                            select d;
             Product[] result = new Product[products.ToList().Count];
             List<ProductsSet> productList = products.ToList();
